@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "cps1-docs"
+version = "0.0.1"
+authors = ["CPS1"]
+description = "CPS1 Documentation"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+mkdocs-material = "*"
+python = "3.12.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

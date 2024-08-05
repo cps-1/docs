@@ -1,0 +1,18 @@
+site_name: CPS1 Documentation
+theme:
+  name: material
+  palette:
+    primary: black
+  logo: assets/images/cps1-logo.png
+  custom_dir: overrides
+  features:
+    - navigation.tabs.sticky
+    - content.code.annotate
+    - navigation.instant
+    - navigation.footer
+
+markdown_extensions:
+  - admonition
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
