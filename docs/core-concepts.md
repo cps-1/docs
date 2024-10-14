@@ -1,0 +1,100 @@
+# Core Concepts
+
+CPS1 employs specific terminology to effectively model various system designs (architectures) and organizational team structures.
+
+The first concept that we need to understand is the **App** definition.
+
+## The App definition
+
+In CPS1, an **App** refers to a system that performs a specific business function within your organization, such as payroll or payment processing. You may also encounter the term **Workload**, which is commonly used in cloud-native contexts and is similar in meaning to **App**.
+
+This concept helps us abstract away implementation details and focus on the functionality provided to end users within your organization.
+
+An App typically offers a user interface for employees or a public API to be accessed by other Apps within your organization.
+
+An App is composed of one or more **Components**.
+
+## The Component definition
+
+In CPS1, a **Component** represents the individual parts of an App. 
+
+It is the smallest functional unit that corresponds to a specific technology-related aspect of an App, such as the backend, frontend, or a database.
+
+There are two types of Components: **Service Components** and **Resource Components**.
+
+### Service Components
+
+A **Service Component** runs code that typically exposes a network port. You can run code whether it's designed for a cloud-native world or not. That is not a requirement.
+
+A **Service Component** has various attributes that define how it will operate within an App. The main attributes are Source code repository, Stacks, Tasks and Ports.
+
+In software development, a Stack typically refers to a combination of technologies used together to build software. This often includes a programming language, frameworks, libraries, runtime and other tools.
+
+In CPS1, a Stack provides the runtime and many other utilities necessary to run, build and test the code. Examples of Stack:
+
+- Python:3.12
+- Node.js:22.10
+- C#:10.10
+
+For a complete list of supported Stacks, please refer to the Supported Stacks Reference guide.
+
+Tasks are commands that perform operations that developers execute to manage and build their projects, frequently automated through scripts or build tools. Some examples of Tasks that are used by a Service are building and running the code, running unit tests, llinting and code formatting.
+
+Each Service typically exposes a network Port (usually over TCP) that allows other services or external clients to communicate with it.
+
+The ports can be internal or external, meaning that an internal port enable services to interact with each other and an external port enable allows end-users or client applications to interact with the service directly.
+
+### Resource Components
+
+A **Resource Component** refers to an external dependency that an App relies on to function, such as databases, caches, message brokers, and others.
+
+CPS1 provides a list of commonly used Resource Components, including MongoDB, MySQL, PostgreSQL, Redis, RabbitMQ, and more, with support for multiple versions. This list is regularly updated and maintained.
+
+Resource Components managed by CPS1 are deployed in isolation for development and are integral to each workspace.
+
+CPS1 can also manage external infrastructure necessary for development at runtime, such as services from public cloud vendors, integrating them into the workspace lifecycle using Terraform.
+
+using our detection technology that can instantly inspect your code, and precisely define requirements like programming languages, frameworks, databases and much more, without the need of any manual configuration.
+
+## The Workspace definition
+
+A Workspace is a development environment running an App, but with many extra capabilities compared to running the App locally on a developer's laptop.
+
+A Workspace resides entirely on the Kubernetes cluster where CPS1 runs and is composed of a combination of Kubernetes Pods, Services and Ingresses. For further details on how CPS1 manages your Kubernetes cluster to create the development environments, check the CPS1 Workspace Internals section.
+
+Overall, you don’t need to worry, because CPS1 manages everything transparently and makes Kubernetes completely invisible.
+
+A Workspace development environment is created containing a basic Linux commands and with all programming languages and tools that were defined as Stacks for each Service of the running App. You don't need to worry about building base images.
+
+Developers will use a Visual Studio Code Web IDE integrated with their workspace and accessible using a web browser, not requiring the installation of any software locally.
+
+When the developer access the Visual Studio Code Web IDE, the source code of all Services will be checked out and if a Build Task and Run Task were defined, those services will be running.
+
+For Services that were configured to expose a network port, they will be accessible using a URL that is automatically generated by CPS1. For more details, check the Automated Preview Environments section.
+
+The lifecycle of a Workspace begins when you create it and ends when you delete it. You can disconnect and reconnect to an active Workspace without affecting its running processes. You may stop and restart a Workspace without losing changes that you have made.
+
+## The Projects definition
+
+Projects are used to group a collection of Apps and adding and removing collaborators, and managing permissions.
+
+Projects also are used for configuring how the Workspaces for the Apps that belong to a given project will be configured and hold metrics for infrastructure usage and cost management.
+
+They can be used to reflect your organization team structure and how each team develops an App. 
+
+The boundaries of which Service Components and Resource Components belong or not to an App and Project definitely varies on a case by case and is very particular for each organization, especially when code and ownership are considered. Please refer to our App Design, Microservices and Team Topologies Guide.
+
+
+## Summary of concepts
+
+- App: a system that performs a business function in your organization
+- Component: smallest functional unit that represents a technology-specific part of an App
+- Component types:
+  - Service: runs code that typically exposes a network port and has the following attributes:
+    - Source code repository:
+    - Stack:
+    - Port:
+    - Task:
+  - Resource: 
+- Workspace:
+- Project:
