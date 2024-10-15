@@ -1,6 +1,6 @@
 # What is CPS1?
 
-CPS1 is a Cloud Development Environment (CDE) platform that enhances your whole development process, resulting in a faster and more reliable workflow. CPS1 leverages Kubernetes to manage the lifecycle of cloud-based development environments, delivering capabilities beyond those of traditional local setups.
+CPS1 is a Cloud Development Environment (CDE) platform that enhances your whole development process, resulting in a faster and more reliable workflow. CPS1 is deployed on your Kubernetes cluster to manage the lifecycle of cloud-based development environments, delivering capabilities beyond those of traditional local setups.
 
 CPS1 tackles the challenges of modern software development, enhancing workflows so engineers can write more code while spending less time waiting on builds or handling shared non-production environments.
 
