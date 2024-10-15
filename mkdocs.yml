@@ -21,6 +21,6 @@ nav:
   - index.md
   - Introduction:
     - What is CPS1?: what-is-cps1.md
-    - How does CPS1 fits in your workflow?: how-cps1-fits-workflow.md
+    - How CPS1 fits into your workflow: how-cps1-fits-workflow.md
     - Core Concepts: core-concepts.md
     - Architecture: architecture.md
