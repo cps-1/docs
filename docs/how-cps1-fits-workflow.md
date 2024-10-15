@@ -8,7 +8,7 @@ The **inner development loop** refers to a developer's cycle of coding, building
 
 In CPS1, developers access a Web IDE, which serves as the entry point to their **Workspace**. A **Workspace** a cloud-based development environment where developers code, build, and test an **App**. Once complete, developers commit and push code to source control, typically triggering CI/CD pipelines.
 
-![Screenshot](assets/cps1-overview.png)
+![CPS1 into your workflow](assets/cps1-overview.png)
 
 The **outer development loop** begins after a developer pushes code to the repository. In this phase, changes are merged into the main branch, typically triggering a CI/CD pipeline to test and build the new code. This process produces a production-ready artifact for deployment.
 
