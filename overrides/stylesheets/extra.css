@@ -1,3 +1,7 @@
 .md-typeset ul {
   list-style-type: revert;
 }
+
+.footer-copyright {
+  margin: 0.6rem;
+}
