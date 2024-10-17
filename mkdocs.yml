@@ -4,6 +4,7 @@ theme:
   palette:
     primary: black
   logo: assets/images/cps1-logo.png
+  favicon: assets/images/favicon.ico
   custom_dir: overrides
   features:
     - navigation.tabs.sticky
