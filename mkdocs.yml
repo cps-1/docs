@@ -25,3 +25,6 @@ nav:
     - How CPS1 fits into your workflow: how-cps1-fits-workflow.md
     - Core Concepts: core-concepts.md
     - Architecture Overview: architecture-overview.md
+
+extra_css:
+  - stylesheets/extra.css
