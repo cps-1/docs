@@ -28,3 +28,12 @@ nav:
 
 extra_css:
   - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://br.linkedin.com/company/cps1
+      name: CPS1 on LinkedIn
+    - icon: fontawesome/brands/github
+      link: https://github.com/cps-1
+      name: CPS1 on GitHub
