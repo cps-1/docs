@@ -6,7 +6,7 @@ CPS1 is deployed on your Kubernetes cluster to transparently handle all necessar
 
     We strongly recommend that CPS1 must be deployed on a Kubernetes cluster dedicated for development and doesn't have any production workloads.
 
-    For more details on how to properly deploy CPS1, refer to our [Deployment Guide](/deployment-guide).
+    For more details on how to properly deploy CPS1, refer to the [Installing CPS1](installing.md) guide.
 
 A CPS1 instance has two main components: the **Web Console** and the **Workspace Server**.
 
@@ -20,4 +20,4 @@ The **Kubernetes Operator** extends Kubernetes by combining [Custom Resource Def
 
 CPS1 makes Kubernetes invisible, providing production-like environments and a seamless cloud-based developer experience. The **Kubernetes Operator** integrates into the cluster's Control Plane, continuously monitoring the actual state against the desired state and reconciling if configuration drift occurs.
 
-For more details on how CPS1 manages your Kubernetes cluster to create development environments, refer to the [Workspace Internals](/workspace-internals) section.
+For more details on how CPS1 manages your Kubernetes cluster to create development environments, refer to the [Workspace Internals](workspace-internals.md) section.
