@@ -1,4 +1,5 @@
 site_name: CPS1 Official Documentation
+copyright: Copyright &copy; 2024 CPS1 Tecnologia LTDA
 theme:
   name: material
   palette:
@@ -6,8 +7,11 @@ theme:
   logo: assets/images/cps1-logo.png
   favicon: assets/images/favicon.ico
   custom_dir: overrides
+  collapse:
+    navigation: false
   features:
     - navigation.tabs.sticky
+    - navigation.expand
     - content.code.annotate
     - navigation.instant
     - navigation.footer
@@ -19,13 +23,18 @@ markdown_extensions:
   - pymdownx.superfences
 
 nav:
-  - index.md
+  - Home: index.md
   - Introduction:
     - What is CPS1?: what-is-cps1.md
     - How CPS1 fits into your workflow: how-cps1-fits-workflow.md
     - Core Concepts: core-concepts.md
     - Architecture Overview: architecture-overview.md
-
+  - Installing: installing.md
+  - References:
+    - Supported Stacks: supported-stacks.md
+    - Supported Components: supported-components.md
+    - Workspace Internals: workspace-internals.md
+    
 extra_css:
   - stylesheets/extra.css
 
