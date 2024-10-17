@@ -3,5 +3,7 @@
 }
 
 .footer-copyright {
-  margin: 0.6rem;
+  padding-top: 0.6rem;
+  margin: 0.2rem 0.6rem;
+  font-size: 0.64rem;
 }
