@@ -18,6 +18,9 @@ theme:
     - navigation.instant
     - navigation.footer
 
+plugins:
+  - social
+
 markdown_extensions:
   - admonition
   - footnotes

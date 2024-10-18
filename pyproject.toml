@@ -6,7 +6,7 @@ description = "CPS1 Documentation"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-mkdocs-material = "*"
+mkdocs-material = {version = "*", extras = ["imaging"]}
 python = "3.12.4"
 
 [build-system]
