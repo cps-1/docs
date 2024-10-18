@@ -1,4 +1,4 @@
-# CPS1 Core Concepts
+# CPS1 Key Concepts
 
 CPS1 employs specific terminology to effectively model various system designs (architectures) and organizational team structures.
 
@@ -88,7 +88,7 @@ Projects can mirror your organization’s team structure and how each team devel
 
 Due to the complexity of modern Apps, the boundaries between which **Service Components** and **Resource Components** belong to an App or Project vary on a case-by-case basis, depending on each organization’s specific needs — especially regarding code and ownership.
 
-## Summary of Core Concepts
+## Summary of Key Concepts
 
 - **App**
     - A system that performs a specific business function (e.g., payroll, payment processing).
