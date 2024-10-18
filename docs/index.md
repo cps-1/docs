@@ -16,7 +16,7 @@ CPS1 is a Cloud Development Environment (CDE) platform deployed on your Kubernet
 
     ---
 
-    Start here to known more about CPS1 and learn what it does.
+    Start here to know more about CPS1 and learn what it does.
 
     [:octicons-arrow-right-24: What is CPS1?](what-is-cps1.md)
 
@@ -24,7 +24,7 @@ CPS1 is a Cloud Development Environment (CDE) platform deployed on your Kubernet
 
     ---
 
-    Learn how CPS1 can greatly improve your develoipment workflow.
+    Learn how CPS1 can greatly improve your development workflow.
 
     [:octicons-arrow-right-24: How CPS1 fits into your workflow](how-cps1-fits-workflow.md)
 
@@ -40,7 +40,7 @@ CPS1 is a Cloud Development Environment (CDE) platform deployed on your Kubernet
 
     ---
 
-    A high level look on how CPS1 operates once deployed on your Kubernetes cluster.
+    A high-level look at how CPS1 operates once deployed on your Kubernetes cluster.
 
     [:octicons-arrow-right-24: Architecture Overview](architecture-overview.md)
 
