@@ -12,6 +12,7 @@ theme:
   features:
     - navigation.tabs.sticky
     - navigation.expand
+    - navigation.sections
     - content.code.annotate
     - navigation.instant
     - navigation.footer
