@@ -30,7 +30,8 @@ nav:
     - How CPS1 fits into your workflow: how-cps1-fits-workflow.md
     - Core Concepts: core-concepts.md
     - Architecture Overview: architecture-overview.md
-  - Installing: installing.md
+  - Setup and administration:
+    - Installing: installing.md
   - References:
     - Supported Stacks: supported-stacks.md
     - Supported Components: supported-components.md
