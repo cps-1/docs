@@ -1,4 +1,5 @@
 site_name: CPS1 Official Documentation
+site_url: https://docs.cps1.tech
 copyright: Copyright &copy; 2024 CPS1 Tecnologia LTDA
 theme:
   name: material
