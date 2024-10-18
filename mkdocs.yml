@@ -32,10 +32,6 @@ nav:
     - Architecture Overview: architecture-overview.md
   - Setup and administration:
     - Installing: installing.md
-  - References:
-    - Supported Stacks: supported-stacks.md
-    - Supported Components: supported-components.md
-    - Workspace Internals: workspace-internals.md
 
 extra_css:
   - stylesheets/extra.css

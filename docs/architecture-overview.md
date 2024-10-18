@@ -20,4 +20,3 @@ The **Kubernetes Operator** extends Kubernetes by combining [Custom Resource Def
 
 CPS1 makes Kubernetes invisible, providing production-like environments and a seamless cloud-based developer experience. The **Kubernetes Operator** integrates into the cluster's Control Plane, continuously monitoring the actual state against the desired state and reconciling if configuration drift occurs.
 
-For more details on how CPS1 manages your Kubernetes cluster to create development environments, refer to the [Workspace Internals](workspace-internals.md) section.

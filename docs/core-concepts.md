@@ -40,8 +40,6 @@ In CPS1, **Stacks** provide the runtime and other utilities necessary to run, bu
 - Node.js 22
 - .NET Core 8
 
-For a complete list of supported **Stacks**, please refer to the [Supported Stacks Reference](supported-stacks.md).
-
 **Tasks** are commands that perform common operations used by developers to manage and build their projects, often automated through scripts or build tools. Examples of **Tasks** used by a **Service Component** include building and running code, executing unit tests, linting, and code formatting.
 
 Finally, each **Service Component** typically exposes one or more **Network Ports** (usually over TCP) that allows other services or external clients to communicate with it.
@@ -69,8 +67,6 @@ CPS1 can also manage external infrastructure necessary for development at runtim
 In CPS1, a **Workspace** is a development environment that runs an App but offers additional capabilities compared to running the App locally on a developer’s laptop.
 
 A Workspace operates entirely on your Kubernetes cluster where CPS1 is deployed. You don’t need to worry because CPS1 manages everything transparently, making Kubernetes operations invisible.
-
-For more details on how CPS1 manages your Kubernetes cluster to create development environments, refer to the [Workspace Internals](workspace-internals.md) section.
 
 A Workspace development environment includes basic Linux commands, along with all programming languages and tools defined as **Stacks** for each **Component Service** of the running App. There is no need to manually build base images.
 
