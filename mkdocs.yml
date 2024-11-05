@@ -18,6 +18,9 @@ theme:
     - navigation.instant
     - navigation.footer
 
+draft_docs: |
+  drafts/
+
 plugins:
   - social
 
