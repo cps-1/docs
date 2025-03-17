@@ -1,18 +1,20 @@
 # What is CPS1?
 
-CPS1 is a Cloud Development Environment (CDE) platform that enhances your whole development process, resulting in a faster and more reliable workflow. CPS1 is deployed on your Kubernetes cluster to manage the lifecycle of cloud-based development environments, delivering capabilities beyond those of traditional local setups.
+CPS1 is a self-hosted solution deployed on your Kubernetes cluster, enhancing development workflows with an intuitive templating engine that automates the provisioning of ephemeral development environments.
 
-CPS1 tackles the challenges of modern software development, enhancing workflows so engineers can write more code while spending less time waiting on builds or handling shared non-production environments.
+Platform engineers can easily customize and extend CPS1, eliminate manual setup, and enforce consistency in ephemeral environments, while offering developers self-service and the flexibility they need.
+
+CPS1 tackles the challenges of modern software development, empowering platform engineers to easily deliver a great development experience.
 
 ## Why CPS1 was created
 
 We believe that, given the complexity and other characteristics of modern systems, development must take place on a managed cloud infrastructure with automation, rather than locally on each contributor's laptop.
 
-This change is essential to increase software development and delivery capabilities by 10x while maintaining quality and consistency, all without increasing the number of people involved.
+This change is essential to increasing software development and delivery capabilities by 10x while maintaining quality and consistency, all without increasing the number of people involved.
 
-To achieve the results of our vision, we believe that the Cloud Development Environment paradigm is the best path forward.
+To achieve the results of our vision, we believe changing the paradigm and moving away from local development environments is the best path forward.
 
-It is also crucial to make it easy to transition from laptop-based local environments to the cloud by utilizing automation, eliminating the need for labor-intensive manual updates of software projects."
+It is also crucial to make the transition seamless from laptop-based local environments to the cloud by utilizing automation, eliminating the need for labor-intensive manual updates of software projects.
 
 ## What is a Cloud Development Environment
 
