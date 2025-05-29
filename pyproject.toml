@@ -4,10 +4,11 @@ version = "0.0.1"
 authors = ["CPS1"]
 description = "CPS1 Documentation"
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
 mkdocs-material = {version = "*", extras = ["imaging"]}
-python = "3.12.4"
+python = "3.13.3"
 
 [build-system]
 requires = ["poetry-core"]
