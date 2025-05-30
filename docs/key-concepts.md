@@ -79,7 +79,9 @@ Ports can be internal or external. Internal ports allow services to interact wit
 
 !!! tip "Extending CPS1 for Platform Engineers"
 
-    Missing the resource, tool or language that your organization uses? As a Platform Engineer, you can create and include your own **Packages** and **Resources** acording to your organization standards to CPS1. Please refer to the [Extending CPS1 reference guide](drafts/extending-cps1.md).
+    Missing the resource, tool or language that your organization uses? As a Platform Engineer, you can create and include your own **Packages** and **Resources** acording to your organization standards to CPS1.
+    
+    For details about supported languages, tools, and configurations, visit the CPS1 Contrib repository: [https://github.com/cps-1/helm-charts/tree/main/charts/cps1-contrib](https://github.com/cps-1/helm-charts/tree/main/charts/cps1-contrib).
 
 ## Workspaces
 

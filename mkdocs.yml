@@ -1,6 +1,6 @@
 site_name: CPS1 Official Documentation
 site_url: https://docs.cps1.tech
-copyright: Copyright &copy; 2024 CPS1 Tecnologia LTDA
+copyright: Copyright &copy; 2025 CPS1 Tecnologia LTDA
 theme:
   name: material
   palette:
@@ -17,6 +17,7 @@ theme:
     - content.code.annotate
     - navigation.instant
     - navigation.footer
+    - content.code.copy
 
 draft_docs: |
   drafts/
@@ -42,8 +43,12 @@ nav:
     - How CPS1 fits into your workflow: how-cps1-fits-workflow.md
     - Key Concepts: key-concepts.md
     - Architecture Overview: architecture-overview.md
-  - Setup and administration:
-    - Installing: installing.md
+  - Installation:
+    - Quick Installation: installation/quick-installation.md
+    - Production Installation: installation/production-installation.md
+  - Configuration:
+    - User management: user-management.md
+    - Licensing: licensing.md
 
 extra_css:
   - stylesheets/extra.css

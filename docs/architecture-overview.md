@@ -2,12 +2,6 @@
 
 CPS1 is deployed on your Kubernetes cluster to transparently handle all necessary operations that support its features.
 
-!!! warning Dedicated Kubernetes cluster for CPS1
-
-    We strongly recommend that CPS1 must be deployed on a Kubernetes cluster dedicated for development and doesn't have any production workloads.
-
-    For more details on how to properly deploy CPS1, refer to the [Installing CPS1](installing.md) guide.
-
 A CPS1 instance has three main components: the **Web Console**, the **Workspace Server**, and the **Gateway**.
 
 The **Web Console** is used by developers and administrators for managing **Templates** and lauching development environment **Workspaces**.
