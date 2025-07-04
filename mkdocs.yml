@@ -43,11 +43,11 @@ nav:
     - How CPS1 fits into your workflow: how-cps1-fits-workflow.md
     - Key Concepts: key-concepts.md
     - Architecture Overview: architecture-overview.md
+    - Quickstart Guide: quickstart.md
   - Installation:
-    - Quick Installation: installation/quick-installation.md
     - Production Installation: installation/production-installation.md
   - Configuration:
-    - Git Integration: git-repository-integration.md
+    - Git Repository Integration: git-repository-integration.md
     - User management: user-management.md
     - Licensing: licensing.md
 

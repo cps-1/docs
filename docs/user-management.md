@@ -35,7 +35,7 @@ After configuring OAuth, you can continue to create local users as needed.
 First, create a new application on your GitLab instance:
 
 1. On your GitLab instance, navigate to your Group page, then go to `Settings` → `Applications`, and create a new application.
-2. Set the `Redirect URI` to `https://cps1.example.com/api/auth/gitlab/authorized`, replacing `cps1.example.com` with your CPS1 instance domain. See the [Production Installation](/installation/production-installation.md) documentation for more details.
+2. Set the `Redirect URI` to `https://cps1.example.com/api/auth/gitlab/authorized`, replacing `cps1.example.com` with your CPS1 instance domain. See the [Production Installation](installation/production-installation.md) documentation for more details.
 3. Enable the following scopes: `read_api`, `read_user`, `read_repository`, `write_repository`, and `openid`.
 4. Save the application and copy the generated secret and Application ID.
 5. On your GitLab instance, navigate to your Group page, then go to `Settings` → `General`, and copy your Group ID.
@@ -58,7 +58,7 @@ Next, configure CPS1:
 
 First, create an OAuth App on GitHub by following the [Creating an OAuth app](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app) guide with the following configuration:
 
-1. Set the `Homepage URL` to `https://cps1.example.com/`, replacing `cps1.example.com` with your CPS1 instance domain. See the [Production Installation](/installation/production-installation.md) documentation for more details.
+1. Set the `Homepage URL` to `https://cps1.example.com/`, replacing `cps1.example.com` with your CPS1 instance domain. See the [Production Installation](installation/production-installation.md) documentation for more details.
 2. Set the `Authorization callback URL` to `https://cps1.example.com/api/auth/github/authorized`, replacing `cps1.example.com` with your CPS1 instance domain.
 3. Register the new OAuth App.
 4. On the OAuth App's settings page, click `Generate a new client secret` and copy it.
