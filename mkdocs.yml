@@ -47,6 +47,7 @@ nav:
     - Quick Installation: installation/quick-installation.md
     - Production Installation: installation/production-installation.md
   - Configuration:
+    - Git Integration: git-repository-integration.md
     - User management: user-management.md
     - Licensing: licensing.md
 

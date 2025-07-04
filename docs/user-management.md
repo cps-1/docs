@@ -30,36 +30,47 @@ Currently, only GitHub and GitLab are supported as OAuth providers.
 
 After configuring OAuth, you can continue to create local users as needed.
 
-To set up OAuth authentication:
+### Setup GitLab as OAuth provider
+
+First, create a new application on your GitLab instance:
+
+1. On your GitLab instance, navigate to your Group page, then go to `Settings` → `Applications`, and create a new application.
+2. Set the `Redirect URI` to `https://cps1.example.com/api/auth/gitlab/authorized`, replacing `cps1.example.com` with your CPS1 instance domain. See the [Production Installation](/installation/production-installation.md) documentation for more details.
+3. Enable the following scopes: `read_api`, `read_user`, `read_repository`, `write_repository`, and `openid`.
+4. Save the application and copy the generated secret and Application ID.
+5. On your GitLab instance, navigate to your Group page, then go to `Settings` → `General`, and copy your Group ID.
+
+For more information, see the [GitLab OAuth Provider documentation](https://docs.gitlab.com/integration/oauth_provider/).
+
+Next, configure CPS1:
 
 1. Go to the `OAuth` page in the left sidebar, under the `Administration` section.
-2. Choose your provider and select the corresponding tab (GitHub or GitLab).
-3. For GitLab:
-    - Navigate to your Group page, then go to `Settings` → `Applications`, and create a new application.
-    - Set the `Redirect URI` to `https://cps1.example.com/api/auth/gitlab/authorized`, replacing `cps1.example.com` with your CPS1 instance domain. See the [Production Installation](/installation/production-installation.md) documentation for more details.
-    - Enable the following scopes: `read_api`, `read_user`, `read_repository`, `write_repository`, and `openid`.
-    - Save the application and copy the generated secret.
-    - In the CPS1 GitLab configuration tab, enter the information provided by GitLab:
-        * Application ID
-        * Group ID
-        * Hostname (default: gitlab.com)
-        * Secret
-    - Click `Update` to save your settings.
-    - The GitLab login option should now appear on the CPS1 login page.
-    - For more information, see the [GitLab OAuth Provider documentation](https://docs.gitlab.com/integration/oauth_provider/).
-5. Click `Create` to finish.
+2. Click on the GitLab tab.
+3. In the CPS1 GitLab configuration tab, enter the information provided by GitLab:
+    * Application ID
+    * Group ID
+    * Hostname (default: gitlab.com)
+    * Secret
+4. Click `Update` to save your settings.
+5. The GitLab login option should now appear on the CPS1 login page.
 
-## Accessing Git repositories
+### Setting up GitHub as an OAuth provider
 
-CPS1 automatically generates an SSH key pair for each user. You can find your public key on the User Profile page.
+First, create an OAuth App on GitHub by following the [Creating an OAuth app](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app) guide with the following configuration:
 
-To access your public key:
+1. Set the `Homepage URL` to `https://cps1.example.com/`, replacing `cps1.example.com` with your CPS1 instance domain. See the [Production Installation](/installation/production-installation.md) documentation for more details.
+2. Set the `Authorization callback URL` to `https://cps1.example.com/api/auth/github/authorized`, replacing `cps1.example.com` with your CPS1 instance domain.
+3. Register the new OAuth App.
+4. On the OAuth App's settings page, click `Generate a new client secret` and copy it.
 
-1. Go to the bottom left corner of the CPS1 interface, where your username and profile picture are displayed.
-2. Click your login name, then select `Profile`.
-3. On the Profile page, you will see your public SSH key. Copy this key and add it to your GitLab or GitHub account.
+Next, configure CPS1:
 
-Once added, CPS1 will be able to access all repositories your user has permission for. This is required to automate code checkout when CPS1 provisions workspaces.
-
-![CPS1 User Profile](assets/cps1-user-profile-page.png){ style="border: 1px solid #ccc; border-radius: 4px;" }
+1. Go to the `OAuth` page in the left sidebar, under the `Administration` section.
+2. Click on the GitHub tab.
+3. In the CPS1 GitHub configuration tab, enter the information provided by GitHub:
+    - Client ID
+    - Organization Name (the GitHub organization that owns the OAuth App)
+    - Secret
+4. Click `Update` to save your settings.
+5. The GitHub login option should now appear on the CPS1 login page.
 
