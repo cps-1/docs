@@ -4,6 +4,8 @@ CPS1 uses a per-active-user pricing model for its subscription license.
 
 A user becomes active after their first login and remains so until deactivated.
 
-Your organization can use CPS1 with up to 10 active users at no charge, without the need for a license key.
+It's free for up to 5 users and one Kubernetes cluster within your organization.
 
-If you require more than 10 active users, please contact our sales team at [contact@cps1.tech](mailto:contact@cps1.tech) for additional information.
+For full terms, read the [CPS1 Community Edition End User License Agreement (EULA)](https://cps1.tech/eula).
+
+Need more users? Upgrade for full support and no usage limits contacting our team at [contact@cps1.tech](mailto:contact@cps1.tech)
