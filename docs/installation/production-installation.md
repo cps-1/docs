@@ -60,6 +60,7 @@ helm install --namespace cps1 --create-namespace cps1-crds cps1/cps1-crds
 ### Install CPS1 Platform
 
 The following Helm values are required for the platform installation:
+
 - `config.hostname`: The fully qualified domain name for your deployment
 - `config.tls.clusterIssuer`: A valid ClusterIssuer configured in CertManager to issue TLS certificates
 
