@@ -19,6 +19,14 @@ pipx install poetry
 1. Install dependencies with `poetry install`
 2. Start the dev server with `poetry run mkdocs serve -a 0.0.0.0:8000`
 
+## Versioning
+
+Use `mike deploy <version>` to deploy a new version in the `gh-pages` branch.
+
+Use `mike deploy <version> latest` to mark it as the default latest stable version.
+
+To start the dev server visualizing all available versions use `mike serve -a 0.0.0.0:8000`
+
 ## Configuring Cloudflare Pages (optional)
 
 When creating a new page, make sure the section *Build configurations* looks like this:

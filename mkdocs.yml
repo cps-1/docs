@@ -1,5 +1,5 @@
 site_name: CPS1 Official Documentation
-site_url: https://docs.cps1.tech
+site_url: https://docs.cps1.tech/
 copyright: Copyright &copy; 2025 CPS1 Tecnologia LTDA
 theme:
   name: material
@@ -65,3 +65,5 @@ extra:
   analytics:
     provider: google
     property: G-FFD1PCEGF1
+  version:
+    provider: mike
