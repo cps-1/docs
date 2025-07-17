@@ -19,21 +19,38 @@ pipx install poetry
 1. Install dependencies with `poetry install`
 2. Start the dev server with `poetry run mkdocs serve -a 0.0.0.0:8000`
 
-## Versioning
+## Versioning and deployment
 
-Use `mike deploy <version>` to deploy a new version in the `gh-pages` branch.
+### Published versions
 
-Use `mike deploy <version> latest` to mark it as the default latest stable version.
+To edit a published version checkout in their branch, regenerate the docs and
+push the deployed bundle in the gh-pages branch.
 
-To start the dev server visualizing all available versions use `mike serve -a 0.0.0.0:8000`
+If you want to update the version v0.1:
+```
+git checkout v0.1
 
-## Configuring Cloudflare Pages (optional)
+# Make changes
 
-When creating a new page, make sure the section *Build configurations* looks like this:
+mike delete v0.1
+mike deploy v0.1
+# If v0.1 is the latest, use `mike deploy v0.1 latest` instead
 
-* Build command: `poetry run mkdocs build`
-* Build output directory: `/site`
-* Build comments on pull requests: `Enabled`
+# Push your changes through a PR or in the version branch
 
-In case you need to change the configuration after creating the page, follow this steps: *Workers & Pages -> [Page name] -> Settings -> Build configurations*
+# To publish the update:
+git checkout gh-pages
+git push origin gh-pages
+```
 
+### Unpublished versions
+
+To update the documentation of an unpublished version (work in progress), go
+to the new version branch update the docs and use `mkdocs` normally. If there
+is no branch yet, create a new one from the `main` branch.
+
+When the new version is done:
+1. Open a PR to the main branch to keep it updated
+2. Run `mike deploy <new-version> latest`
+3. Test the new and older versions with `mike serve -a 0.0.0.0:8000`
+4. Publish it pushing the changes in the `gh-pages` branch
