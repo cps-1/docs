@@ -1,0 +1,13 @@
+<script>
+    const versions = ["v0.1.0", "latest"]
+    let found = false
+    versions.forEach(version => {
+        if (window.location.pathname.startsWith(`/${version}`)) {
+            window.location.href = `/${version}/404`
+            found = true
+        }
+    });
+    if (!found) {
+        window.location.href = `/latest${window.location.pathname}`
+    }
+</script>
