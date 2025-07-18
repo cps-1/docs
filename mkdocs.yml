@@ -50,6 +50,7 @@ nav:
     - Git Repository Integration: git-repository-integration.md
     - User management: user-management.md
     - Licensing: licensing.md
+  - Changelog: changelog.md
 
 extra_css:
   - stylesheets/extra.css
