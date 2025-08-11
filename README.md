@@ -34,7 +34,7 @@ git checkout v0.1
 
 mike delete v0.1
 mike deploy v0.1
-# If v0.1 is the latest, use `mike deploy v0.1 latest` instead
+# If v0.1 is the latest, use `mike deploy v0.1 latest --update-aliases` instead
 
 # Push your changes through a PR or in the version branch
 
