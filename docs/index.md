@@ -1,8 +1,8 @@
-# Welcome to CPS1 Official Documentation
+# Welcome to Cloud Programming Shell (CPS1) Official Documentation
 
-## What is CPS1?
+## What is Cloud Programming Shell?
 
-CPS1 is a self-hosted solution deployed on your Kubernetes cluster, enhancing development workflows with an intuitive templating engine that automates the provisioning of ephemeral development environments.
+Cloud Programming Shell (CPS1) is a self-hosted solution deployed on your Kubernetes cluster, enhancing development workflows with an intuitive templating engine that automates the provisioning of ephemeral development environments.
 
 Platform engineers can easily customize and extend CPS1, eliminate manual setup, and enforce consistency in ephemeral environments, while offering developers self-service and the flexibility they need.
 
@@ -52,12 +52,6 @@ The templating engine enables fast, reproducible environment setups, meaning dev
 
 15. **Dedicated to Platform Engineers and Developers**
 Unlike other products that may cater only to one role, CPS1 is tailored to both platform engineers (for managing and customizing environments) and developers (for ease of use and flexibility).
-
-!!! tip "This product is not yet publicly available"
-
-    We're working hard toward our first release.
-
-    To learn more about our progress, keep an eye on our blog at [cps1.tech/blog](https://cps1.tech/blog).
 
 <div class="grid cards" markdown>
 

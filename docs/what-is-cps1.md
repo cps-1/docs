@@ -1,6 +1,6 @@
-# What is CPS1?
+# What is Cloud Programming Shell (CPS1)?
 
-CPS1 is a self-hosted solution deployed on your Kubernetes cluster, enhancing development workflows with an intuitive templating engine that automates the provisioning of ephemeral development environments.
+Cloud Programming Shell (CPS1) is a self-hosted solution deployed on your Kubernetes cluster, enhancing development workflows with an intuitive templating engine that automates the provisioning of ephemeral development environments.
 
 Platform engineers can easily customize and extend CPS1, eliminate manual setup, and enforce consistency in ephemeral environments, while offering developers self-service and the flexibility they need.
 
@@ -34,5 +34,3 @@ Fundamentally, Cloud Development Environments (CDEs) shift the paradigm from loc
 | ----------- | ------------------------------------ | ------ |
 | [What Is a Cloud Development Environment?](https://www.dreamhost.com/blog/cloud-development-environment/) | This article explains the concept of Cloud Development Environments (CDEs), detailing how they provide developers with accessible, pre-configured tools in the cloud. It highlights the benefits of using CDEs, such as improved collaboration, reduced setup time, and enhanced scalability for development teams. | Matt Stamp |
 | [Cloud Development Environments](https://newsletter.pragmaticengineer.com/p/cloud-development-environments) | In this newsletter, the author discusses the rise of Cloud Development Environments, emphasizing their role in streamlining software development processes. It covers the advantages of CDEs over traditional local setups, including flexibility and efficiency, and shares insights on adopting this paradigm in development workflows. | Gergely Orosz |
-| [The Challenges of Creating & Managing Developer Environments at Scale](https://amazic.com/the-challenges-of-creating-managing-developer-environments-at-scale/) | This article addresses the complexities involved in establishing and managing developer environments, particularly at scale. It explores common issues such as consistency, security, and resource allocation, and offers strategies for overcoming these challenges to ensure efficient development operations. | Twain Taylor |
-| [The Real Cost of Poor Local Development Environments](https://medium.com/@scokmen/the-real-cost-of-poor-local-development-environments-19a093ddbb6e) | In this Medium post, the author examines the hidden costs associated with inefficient local development environments. It discusses the impact on productivity, collaboration, and software quality, advocating for the transition to more effective solutions like Cloud Development Environments to enhance development efficiency. | Soner Çökmen |

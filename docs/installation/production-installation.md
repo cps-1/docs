@@ -1,4 +1,4 @@
-# CPS1 Production Setup
+# Production Setup
 
 CPS1 is installed on a Kubernetes cluster to transparently handle all necessary operations that support our core features.
 
@@ -78,9 +78,9 @@ helm show values cps1/cps1-platform
 
 !!! note CPS1 Community Edition
 
-    CPS1 Community Edition is free to use within your organization, with a limit of 10 active users and one Kubernetes cluster.
+    CPS1 Community Edition is free to use within your organization, with a limit of 5 active users and one Kubernetes cluster.
 
-    For teams with more than 10 users or requiring multiple clusters, please [upgrade to the Enterprise Edition](https://www.cps1.tech/talk-to-sales).
+    For teams with more than 5 users or requiring multiple clusters, please [upgrade to the Enterprise Edition](https://www.cps1.tech/talk-to-sales).
 
     By installing CPS1 Community Edition, you accept the [End User License Agreement (EULA)](https://www.cps1.tech/eula).
 
