@@ -1,0 +1,1042 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.cps1.tech/v0.3/quickstart/">
+      
+      
+        <link rel="prev" href="../architecture-overview/">
+      
+      
+        <link rel="next" href="../installation/production-installation/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Quickstart Guide - Cloud Programming Shell (CPS1) Official Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-FFD1PCEGF1"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-FFD1PCEGF1",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-FFD1PCEGF1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Quickstart Guide - Cloud Programming Shell (CPS1) Official Documentation" >
+      
+        <meta  property="og:description"  content="None" >
+      
+        <meta  property="og:image"  content="https://docs.cps1.tech/v0.3/assets/images/social/quickstart.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://docs.cps1.tech/v0.3/quickstart/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Quickstart Guide - Cloud Programming Shell (CPS1) Official Documentation" >
+      
+        <meta  name="twitter:description"  content="None" >
+      
+        <meta  name="twitter:image"  content="https://docs.cps1.tech/v0.3/assets/images/social/quickstart.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#quickstart-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Cloud Programming Shell (CPS1) Official Documentation" class="md-header__button md-logo" aria-label="Cloud Programming Shell (CPS1) Official Documentation" data-md-component="logo">
+      
+  <img src="../assets/images/cps1-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cloud Programming Shell (CPS1) Official Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quickstart Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Cloud Programming Shell (CPS1) Official Documentation" class="md-nav__button md-logo" aria-label="Cloud Programming Shell (CPS1) Official Documentation" data-md-component="logo">
+      
+  <img src="../assets/images/cps1-logo.png" alt="logo">
+
+    </a>
+    Cloud Programming Shell (CPS1) Official Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome to CPS1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-is-cps1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is CPS1?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-cps1-fits-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How CPS1 fits into your workflow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../key-concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Key Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Architecture Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Quickstart Guide
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quickstart Guide
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-running-the-installer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Running the installer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-logging-into-your-cps1-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Logging into your CPS1 instance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-creating-a-template-in-cps1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Creating a Template in CPS1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-adding-a-service-component-to-the-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Adding a Service Component to the Template
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-create-a-new-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Create a new Workspace
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/production-installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Production Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git-repository-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Repository Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    User management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Licensing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Changelog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-running-the-installer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Running the installer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-logging-into-your-cps1-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Logging into your CPS1 instance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-creating-a-template-in-cps1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Creating a Template in CPS1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-adding-a-service-component-to-the-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Adding a Service Component to the Template
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-create-a-new-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Create a new Workspace
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="quickstart-guide">Quickstart Guide</h1>
+<p>Welcome! In this tutorial, you’ll install CPS1 locally and learn how to create a new <strong>Template</strong> and provision a <strong>Workspace</strong>!</p>
+<h2 id="1-prerequisites">1. Prerequisites</h2>
+<p>Ensure the following tools are installed on your system:</p>
+<ul>
+<li><a href="https://docs.docker.com/get-docker/">Docker</a></li>
+<li><a href="https://kind.sigs.k8s.io/docs/user/quick-start/">Kind</a></li>
+<li><a href="https://helm.sh/docs/intro/install/">Helm</a></li>
+<li><a href="https://kubernetes.io/docs/tasks/tools/">kubectl</a></li>
+</ul>
+<h2 id="2-running-the-installer">2. Running the installer</h2>
+<p>For proof-of-concept scenarios, we provide an installation script that installs CPS1 locally, without requiring a Kubernetes cluster.</p>
+<p>Run the command bellow in your system:
+<div class="highlight"><pre><span></span><code>curl https://helm.cps1.tech/cps1-installer.sh | bash
+</code></pre></div></p>
+<p>After the installation finishes, you can access CPS1 at <a href="http://cps1.localhost:3001">http://cps1.localhost:3001</a>.</p>
+<p>For a production grade installation, follow the <a href="../installation/production-installation/">Production Installation</a> guide.</p>
+<h2 id="3-logging-into-your-cps1-instance">3. Logging into your CPS1 instance</h2>
+<p>When a fresh installation is done, there are no users created.</p>
+<p>Once you access CPS1 for the first time, it will prompted you to create an <code>Admin</code> user account.</p>
+<p>Provide a username and password and you are ready to create your first <strong>Template</strong> and <strong>Workspace</strong>!</p>
+<h2 id="4-creating-a-template-in-cps1">4. Creating a Template in CPS1</h2>
+<p>Every Template starts with a <strong>base container image</strong>. During the Template build process, CPS1 layers your custom configurations on top of this image, enabling consistent and reproducible environments.</p>
+<p>Follow these steps to create a new Template:</p>
+<ol>
+<li><strong>Navigate to the Templates page</strong><br />
+   In the left sidebar, under the <code>Environments</code> section, click on <code>Templates</code>.</li>
+<li><strong>View your existing Templates</strong><br />
+   The page displays all Templates currently available in your CPS1 instance, as shown below:<br />
+<img alt="Template list" src="../assets/cps1-template-list.png" style="border: 1px solid #ccc; border-radius: 4px;" /></li>
+<li><strong>Create a new Template</strong><br />
+   Click the <code>New Template</code> button at the top-right of the page.</li>
+<li><strong>Fill out the Template form</strong><br />
+   Provide the following information:<ul>
+<li><strong>Name</strong>: A descriptive name for your Template. Let's use <code>cps1-tutorial</code>.</li>
+<li><strong>Base image</strong>: CPS1 provides a base image that is compatible with many built-in packages. You can leave this as is.</li>
+<li><strong>Description</strong> (optional): Add a short description to help others understand the Template’s purpose.</li>
+<li><strong>Icon</strong> (optional): Select an icon to visually identify the Template.
+   <img alt="New template form" src="../assets/cps1-new-template-form.png" style="border: 1px solid #ccc; border-radius: 4px;" /></li>
+</ul>
+</li>
+<li><strong>Save the Template</strong><br />
+   Click on <code>Create</code> and you will be taken to the next step for adding <strong>Components</strong>.</li>
+</ol>
+<h2 id="5-adding-a-service-component-to-the-template">5. Adding a Service Component to the Template</h2>
+<p>A <strong>Component</strong> is the smallest functional unit in a Template, representing a specific part of an application such as a backend service, frontend interface, or database.</p>
+<p>Each <strong>Component</strong> reflects a distinct technology or service needed to assemble a complete development environment.</p>
+<p>A <strong>Service</strong> is a Component that runs code, often exposing network ports for communication.</p>
+<p>It is defined by three main attributes:</p>
+<ul>
+<li><strong>Code Repository</strong>: Provides the source code to be cloned and executed in the Workspace.</li>
+<li><strong>Packages</strong>: Install the necessary tools and runtimes into the final Template container image.</li>
+<li><strong>Network Ports</strong>: Enable internal and external communication for the Service.</li>
+</ul>
+<p>Follow these steps to add a <strong>Service Component</strong>:</p>
+<ol>
+<li><strong>Add a new component</strong><br />
+   Click on <code>New Component</code>.
+   <img alt="New template form" src="../assets/cps1-empty-template.png" style="border: 1px solid #ccc; border-radius: 4px;" /></li>
+<li><strong>Select the Service component</strong><br />
+   On the Components tab, select <code>Service</code>.
+   <img alt="New template form" src="../assets/cps1-service-select.png" style="border: 1px solid #ccc; border-radius: 4px;" /></li>
+<li><strong>Fill out the Service form</strong><ul>
+<li><strong>Name</strong>: A descriptive name for the Service. Let's use <code>node_app</code>.</li>
+<li><strong>Code Repository</strong> <em>(optional)</em>: Git URL to a repository. You can leave it empty. Note: CPS1 requires access to the repository for cloning it. Refer to <a href="../git-repository-integration/">Git Repository Integration</a> for further instructions. </li>
+<li><strong>Packages</strong> <em>(optional)</em>: Tools and languages that are installed on top of the Template base image. Select <code>Node.js</code> and then version <code>v24</code>.</li>
+<li><strong>Network Ports</strong> <em>(optional)</em>: Ports that will be made accessible from outside the Workspace. Let's use <code>3000</code>.
+   <img alt="New Service form" src="../assets/cps1-new-service-form.png" style="border: 1px solid #ccc; border-radius: 4px;" /></li>
+</ul>
+</li>
+<li><strong>Create the Service</strong><br />
+   Click <code>Create</code> to start the build process.</li>
+<li><strong>Template build process</strong><br />
+   CPS1 will build a container image to use as a starting point for new Workspaces. You can follow the build process on the <code>Build Logs</code> tab.
+   <img alt="Template build" src="../assets/cps1-template-build.png" style="border: 1px solid #ccc; border-radius: 4px;" /></li>
+<li>When the build finishes, move on to create a <strong>Workspace</strong>.</li>
+</ol>
+<h2 id="6-create-a-new-workspace">6. Create a new Workspace</h2>
+<p>In CPS1, a <strong>Workspace</strong> is an ephemeral development environment created based on a given <strong>Template</strong>, with many additional capabilities compared to running locally on a developer’s laptop.</p>
+<p>A Workspace operates entirely on your Kubernetes cluster where CPS1 is deployed. You don’t need to worry because CPS1 manages everything transparently, making Kubernetes operations invisible.</p>
+<p>Follow these steps to create a new Workspace:</p>
+<ol>
+<li><strong>Navigate to the Workspaces page</strong><br />
+   Go to the <code>Workspaces</code> page in the left sidebar, under the <code>Environments</code> section.</li>
+<li><strong>Create a new Workspace</strong><br />
+   Click the <code>New Workspace</code> button at the top-right of the page.</li>
+<li><strong>Choose a Template</strong><br />
+   Click the <code>cps1-tutorial</code> template on the right side of the page and then click the <code>Launch</code> button at the bottom-right.
+   <img alt="Launch Workspace" src="../assets/cps1-launch-workspace.png" style="border: 1px solid #ccc; border-radius: 4px;" /></li>
+<li><strong>Workspace provisioning</strong><br />
+   You will be redirected to the Workspace detail page, which shows that your <strong>Workspace</strong> is being provisioned.
+   <img alt="Workspace provisioning" src="../assets/cps1-workspace-provisioning.png" style="border: 1px solid #ccc; border-radius: 4px;" /></li>
+</ol>
+<p>After a few moments, the Workspace will be ready to use.</p>
+<p>The <strong>Workspace</strong> is accessible using the integrated Web IDE directly from a web browser or using an SSH connection.</p>
+<p><strong>Services</strong> configured in the Template that expose a network port will be accessible via a URL automatically generated by CPS1.</p>
+<p>To access the Workspace, navigate to the top-right of the page, where you can find the workspace control operations:</p>
+<ul>
+<li><strong>Open Web IDE</strong>: Opens the Web IDE in a new tab in your browser.</li>
+<li><strong>Access with SSH</strong>: Copies an SSH command to the clipboard to access the Workspace.</li>
+<li><strong>Pause Workspace</strong>: Pauses the Workspace, stopping all processes. Data is persisted, so this is a safe operation.</li>
+<li><strong>Destroy Workspace</strong>: Finishes all processes on the Workspace and deletes all data.</li>
+</ul>
+<p><img alt="Workspace detail page" src="../assets/cps1-workspace-detail.png" style="border: 1px solid #ccc; border-radius: 4px;" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Workspace lifecycle</p>
+<p>Make sure all your code is committed and pushed to the git repository before destroying a Workspace.</p>
+<p>You can disconnect and reconnect to an active Workspace without affecting its running processes.</p>
+<p>Additionally, you can stop and restart a Workspace without losing any changes you have made.</p>
+</div>
+<p>If you encounter any issues or have feedback, please open an issue in our repository: <a href="https://github.com/cps-1/cps1">https://github.com/cps-1/cps1</a></p>
+<!--
+## 4. Add a PostgreSQL Resource
+
+    - External dependencies like databases, caches, or message brokers.
+    - CPS1 supports popular resources (e.g., MongoDB, PostgreSQL) and integrates cloud infrastructure via Terraform.
+    - Resources are isolated for development within **Workspaces**.
+
+A **Resource** refers to an external dependency that an application relies on to function, such as databases, caches, message brokers, and others.
+
+CPS1 provides a list of commonly used Resource Components, including MongoDB, MySQL, PostgreSQL, Redis, RabbitMQ, and more, with support for multiple versions. This list is regularly updated and maintained.
+
+Resource Components managed by CPS1 are deployed in isolation for development and are integral to each Workspace.
+
+CPS1 can also manage external infrastructure necessary for development at runtime, such as services from public cloud vendors, integrating them into the Workspace lifecycle using Terraform.
+-->
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../architecture-overview/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Architecture Overview">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Architecture Overview
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../installation/production-installation/" class="md-footer__link md-footer__link--next" aria-label="Next: Production Installation">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Production Installation
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="footer-copyright">
+  <a href="https://www.cps1.tech/" target="_blank">
+    <img src="/assets/images/cps1-logo.png" alt="CPS1 logo" height="38" width="100">
+  </a>
+  <p>Copyright &copy; 2026 CPS1 Tecnologia LTDA</p>
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://br.linkedin.com/company/cps1" target="_blank" rel="noopener" title="CPS1 on LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/cps-1" target="_blank" rel="noopener" title="CPS1 on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs.sticky", "navigation.expand", "navigation.sections", "content.code.annotate", "navigation.instant", "navigation.footer", "content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
