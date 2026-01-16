@@ -6,7 +6,7 @@ CPS1 belongs on the code development stage of the workflow, empowering developer
 
 The **inner development loop** refers to a developer's cycle of coding, building, and testing changes. This process must provide rapid feedback until the code is ready for review, typically as a pull request (PR). This process occurs on CPS1 instead of the developer's computer within a local environment.
 
-In CPS1, developers access a Web IDE, which serves as the entry point to their **Workspace**. A **Workspace** a cloud-based development environment where developers code, build, and test an **App**. Once complete, developers commit and push code to source control, typically triggering CI/CD pipelines.
+In CPS1, developers access a **Workspace**, which serves as the entry point to their **Environment**. A **Workspace** is a cloud-based development environment where developers code, build, and test application code. Once complete, developers commit and push code to source control, typically triggering CI/CD pipelines.
 
 ![CPS1 into your workflow](assets/cps1-overview.png)
 

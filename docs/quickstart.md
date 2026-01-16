@@ -1,6 +1,6 @@
 # Quickstart Guide
 
-Welcome! In this tutorial, you’ll install CPS1 locally and learn how to create a new **Template** and provision a **Workspace**!
+Welcome! In this tutorial, you’ll install CPS1 locally and learn how to create a new **Template** containing a **Workspace** and a **Resource**, and finally launch an **Environment**!
 
 ## 1. Prerequisites
 Ensure the following tools are installed on your system:
@@ -29,11 +29,11 @@ When a fresh installation is done, there are no users created.
 
 Once you access CPS1 for the first time, it will prompted you to create an `Admin` user account.
 
-Provide a username and password and you are ready to create your first **Template** and **Workspace**!
+Provide a username and password and you are ready to create your first **Template**!
 
 ## 4. Creating a Template in CPS1
 
-Every Template starts with a **base container image**. During the Template build process, CPS1 layers your custom configurations on top of this image, enabling consistent and reproducible environments.
+Every Template starts with its **Name** and some other basic information, like Description and a Icon.
 
 Follow these steps to create a new Template:
 
@@ -47,20 +47,32 @@ Follow these steps to create a new Template:
 4. **Fill out the Template form**  
    Provide the following information:
     - **Name**: A descriptive name for your Template. Let's use `cps1-tutorial`.
-    - **Base image**: CPS1 provides a base image that is compatible with many built-in packages. You can leave this as is.
     - **Description** (optional): Add a short description to help others understand the Template’s purpose.
-    - **Icon** (optional): Select an icon to visually identify the Template.
+    - **Icon** (optional): Add an icon URL or SVG data to visually identify the Template.
    ![New template form](assets/cps1-new-template-form.png){ style="border: 1px solid #ccc; border-radius: 4px;" }
 5. **Save the Template**  
-   Click on `Create` and you will be taken to the next step for adding **Components**.
+   Click on `Create` and you will be taken to the next step for adding a **Resource** and **Workspace**.
 
-## 5. Adding a Service Component to the Template
+## 5. Adding a Resource to the Template
 
-A **Component** is the smallest functional unit in a Template, representing a specific part of an application such as a backend service, frontend interface, or database.
+**Resources** are external dependencies, such as databases, caches, and message brokers.
 
-Each **Component** reflects a distinct technology or service needed to assemble a complete development environment.
+Follow these steps to add a PostgreSQL database Resource to the `cps1-tutorial` Template:
 
-A **Service** is a Component that runs code, often exposing network ports for communication.
+1. **Add a new Resource**
+   Click on `New Resource`.
+   ![New template form](assets/cps1-empty-template.png){ style="border: 1px solid #ccc; border-radius: 4px;" }
+2. **Select the PostgreSQL Resource**  
+   On the Resource list, select `PostgreSQL`.
+3. **Fill out the ID field**
+    The **Resource ID** must be simple and short. Let's use `database`.
+4. **Create the Resource**  
+   Scroll down to the bottom and click `Create`. Leave all other fields at their default values.
+   ![How to create a new Resource](assets/cps1-new-resource.gif){ style="border: 1px solid #ccc; border-radius: 4px;" }
+
+## 6. Adding a Workspace to the Template
+
+Developers connect their preferred IDE to a **Workspace** to write, run, debug, and test code. Also, it is often necessary to expose network ports, so developers can access a running application.
 
 It is defined by three main attributes:
 
@@ -68,60 +80,66 @@ It is defined by three main attributes:
 - **Packages**: Install the necessary tools and runtimes into the final Template container image.
 - **Network Ports**: Enable internal and external communication for the Service.
 
-Follow these steps to add a **Service Component**:
+Follow these steps to add a **Workspace** to the `cps1-tutorial` Template:
 
-1. **Add a new component**  
-   Click on `New Component`.
+1. **Add a new Workspace**
+   Click on `New Workspace`.
    ![New template form](assets/cps1-empty-template.png){ style="border: 1px solid #ccc; border-radius: 4px;" }
-2. **Select the Service component**  
-   On the Components tab, select `Service`.
-   ![New template form](assets/cps1-service-select.png){ style="border: 1px solid #ccc; border-radius: 4px;" }
-3. **Fill out the Service form**
-    -  **Name**: A descriptive name for the Service. Let's use `node_app`.
-    - **Code Repository** *(optional)*: Git URL to a repository. You can leave it empty. Note: CPS1 requires access to the repository for cloning it. Refer to [Git Repository Integration](git-repository-integration.md) for further instructions. 
-    - **Packages** *(optional)*: Tools and languages that are installed on top of the Template base image. Select `Node.js` and then version `v24`.
-    - **Network Ports** *(optional)*: Ports that will be made accessible from outside the Workspace. Let's use `3000`.
-   ![New Service form](assets/cps1-new-service-form.png){ style="border: 1px solid #ccc; border-radius: 4px;" }
-4. **Create the Service**  
-   Click `Create` to start the build process.
-5. **Template build process**  
-   CPS1 will build a container image to use as a starting point for new Workspaces. You can follow the build process on the `Build Logs` tab.
+2. **Fill out the ID field**
+    The **Workspace ID** must be simple and short. Let's use `node-app`.
+3. **Define a Base Image**
+    During the **Workspace** build process, CPS1 layers your custom configurations on top of this image, enabling consistent and reproducible environments. CPS1 provides a base image that is compatible with many built-in packages. You can leave this as is.
+4. **Code Repository**
+   *(optional)*: Git URL to a repository. You can leave it empty. Note: CPS1 requires access to the repository for cloning it. Refer to [Git Repository Integration](git-repository-integration.md) for further instructions. 
+5. **Packages**
+   *(optional)*: Select the tools and languages to install. Select `Node.js` with version `v24`.
+6. **Network Ports**
+   *(optional)*: Specify ports to make accessible from outside the Workspace. Enter `3000`.
+7. **Define Environment Variables**
+   Add variable names and their values, they will be set on the Workspace. Also, CPS1 native orchestrator is able to output data from a Resource into a Workspace. The demonstration below shows how to perform this mapping.
+   ![How to create a new Workspace](assets/cps1-new-workspace.gif){ style="border: 1px solid #ccc; border-radius: 4px;" }
+8. Click `Create` to start the build process.
+9. **Workspace Image build process**
+   CPS1 will build a container image to use as a starting point for new Workspace. You can follow the build process on the `Build Logs` tab.
    ![Template build](assets/cps1-template-build.png){ style="border: 1px solid #ccc; border-radius: 4px;" }
-6. When the build finishes, move on to create a **Workspace**.
+10. When the build finishes, move on to create an **Environmet**.
 
-## 6. Create a new Workspace
+## 7. Launch a new Environment
 
-In CPS1, a **Workspace** is an ephemeral development environment created based on a given **Template**, with many additional capabilities compared to running locally on a developer’s laptop.
+In CPS1, an **Environment** is created based on a given **Template**, with many additional capabilities compared to running locally on a developer’s laptop.
 
-A Workspace operates entirely on your Kubernetes cluster where CPS1 is deployed. You don’t need to worry because CPS1 manages everything transparently, making Kubernetes operations invisible.
+An Environment operates entirely on your Kubernetes cluster where CPS1 is deployed. CPS1 manages everything transparently, removing the need for manual Kubernetes management.
 
-Follow these steps to create a new Workspace:
+Follow these steps to create a new Environment:
 
-1. **Navigate to the Workspaces page**  
-   Go to the `Workspaces` page in the left sidebar, under the `Environments` section.
-2. **Create a new Workspace**  
-   Click the `New Workspace` button at the top-right of the page.
+1. **Navigate to the Environments page**  
+   Go to the `Environments` page in the left sidebar, under the `Environments` section.
+2. **Create a new Environment**  
+   Click the `New Environment` button at the top-right of the page.
 3. **Choose a Template**  
-   Click the `cps1-tutorial` template on the right side of the page and then click the `Launch` button at the bottom-right.
+   Select the `cps1-tutorial` template on the right side of the page and then click the `Launch` button at the bottom-right.
    ![Launch Workspace](assets/cps1-launch-workspace.png){ style="border: 1px solid #ccc; border-radius: 4px;" }
-4. **Workspace provisioning**  
-   You will be redirected to the Workspace detail page, which shows that your **Workspace** is being provisioned.
-   ![Workspace provisioning](assets/cps1-workspace-provisioning.png){ style="border: 1px solid #ccc; border-radius: 4px;" }
+4. **Environment provisioning**  
+   You will be redirected to the Environment detail page, which displays the provisioning progress.
+   ![Environment provisioning](assets/cps1-environment-provisioning.png){ style="border: 1px solid #ccc; border-radius: 4px;" }
    
-After a few moments, the Workspace will be ready to use.
+After a few moments, your Environment will be ready to use.
 
 The **Workspace** is accessible using the integrated Web IDE directly from a web browser or using an SSH connection.
 
-**Services** configured in the Template that expose a network port will be accessible via a URL automatically generated by CPS1.
+**Ports** in the Workspace configured to expose network traffic will be accessible via a URL automatically generated by CPS1.
 
-To access the Workspace, navigate to the top-right of the page, where you can find the workspace control operations:
+To access the Workspace, navigate to the left of the page, where you can find the workspace control operations:
 
 - **Open Web IDE**: Opens the Web IDE in a new tab in your browser.
 - **Access with SSH**: Copies an SSH command to the clipboard to access the Workspace.
-- **Pause Workspace**: Pauses the Workspace, stopping all processes. Data is persisted, so this is a safe operation.
-- **Destroy Workspace**: Finishes all processes on the Workspace and deletes all data.
 
-![Workspace detail page](assets/cps1-workspace-detail.png){ style="border: 1px solid #ccc; border-radius: 4px;" }
+Navigate to the top-right of the page, where you can find the Environment control operations:
+
+- **Pause Environment**: Pauses all Workspaces and Resources, stopping all processes. Data is persisted, so this is a safe operation.
+- **Destroy Environment**: Terminates all processes and deletes all data.
+
+![Environment detail page](assets/cps1-environment-detail.png){ style="border: 1px solid #ccc; border-radius: 4px;" }
 
 !!! warning "Workspace lifecycle"
     
@@ -132,20 +150,4 @@ To access the Workspace, navigate to the top-right of the page, where you can fi
     Additionally, you can stop and restart a Workspace without losing any changes you have made.
 
 If you encounter any issues or have feedback, please open an issue in our repository: [https://github.com/cps-1/cps1](https://github.com/cps-1/cps1)
-
-<!--
-## 4. Add a PostgreSQL Resource
-
-    - External dependencies like databases, caches, or message brokers.
-    - CPS1 supports popular resources (e.g., MongoDB, PostgreSQL) and integrates cloud infrastructure via Terraform.
-    - Resources are isolated for development within **Workspaces**.
-
-A **Resource** refers to an external dependency that an application relies on to function, such as databases, caches, message brokers, and others.
-
-CPS1 provides a list of commonly used Resource Components, including MongoDB, MySQL, PostgreSQL, Redis, RabbitMQ, and more, with support for multiple versions. This list is regularly updated and maintained.
-
-Resource Components managed by CPS1 are deployed in isolation for development and are integral to each Workspace.
-
-CPS1 can also manage external infrastructure necessary for development at runtime, such as services from public cloud vendors, integrating them into the Workspace lifecycle using Terraform.
--->
 

@@ -2,56 +2,39 @@
 
 ## What is Cloud Programming Shell?
 
-Cloud Programming Shell (CPS1) is a self-hosted solution deployed on your Kubernetes cluster, enhancing development workflows with an intuitive templating engine that automates the provisioning of ephemeral development environments.
+**Cloud Programming Shell (CPS1) is a unified Platform Orchestrator and Cloud Development Environment solution.**
 
-Platform engineers can easily customize and extend CPS1, eliminate manual setup, and enforce consistency in ephemeral environments, while offering developers self-service and the flexibility they need.
+It provides Platform Engineers and SREs with the governance and cost-controls they need, while giving developers the flexibility and speed they demand.
+
+CPS1 is a self-hosted solution deployed on your Kubernetes cluster, enhancing development workflows with a unifed provisioning of ephemeral development environments.
+
+Platform Engineers can easily customize and extend CPS1, eliminate manual setup, and enforce consistency, while offering developers the flexibility to create, test, and iterate quickly.
 
 ## What makes CPS1 different?
 
-1. **Easy-to-Use Templating Engine**
-Unlike many CDE products with complex, steep learning curves, CPS1’s templating engine is intuitive and simple to use, requiring no additional skills for platform engineers to learn.
+### Platform Orchestrator and Cloud Development Environmets combined
+Unlike CDEs that require external tools for infrastructure management, CPS1 has orchestration built-in. It manages the lifecycle of the environment, from initial provisioning to automatic suspension (cost-saving) and decommissioning.
 
-2. **Customization and Extensibility**
-CPS1 allows platform engineers to easily customize and extend environments without the need for complex configuration, offering a high degree of flexibility to tailor the platform to specific needs.
+### Self-Service Provisioning
+CPS1 empowers developers to spin up full-stack environments including databases, caches, and cloud resources from pre-approved Templates defined by Platform Engineers. No tickets, no delays.
 
-3. **Self-Hosted Solution**
+### The "Golden Path" for Standardization
+CPS1 provides a "Packages and Resources" catalog that SREs and Platform Engineers can easily customize and extend to include specific versions of languages, tools, and dependencies. This ensures every developer is working in a production-aligned environment, eliminating the gap between local and cloud.
+
+### Ephemeral Environment Management
+Move away from "forever" staging environments. CPS1 creates isolated, on-demand workspaces for every branch or feature, allowing for true end-to-end testing in a production-aligned environment.
+
+### Self-Hosted Solution
 CPS1 is self-hosted and deployed directly on your Kubernetes cluster, giving organizations more control over their infrastructure, security, and scalability compared to cloud-based solutions.
 
-4. **Automated Ephemeral Environment Provisioning**
-Automates the provisioning of ephemeral development environments, saving time and effort compared to manual setups, while eliminating the need for ongoing configuration management.
+### No New Skills Required for Platform Engineers
+Platform Engineers can adopt and use CPS1 quickly without needing to learn new technologies or tools, thanks to its simple setup.
 
-5. **No New Skills Required for Platform Engineers**
-Platform engineers can adopt and use CPS1 quickly without needing to learn new technologies or tools, thanks to its simple setup and easy-to-use templating engine.
-
-6. **Reduces Cognitive Load for Developers and Platform Engineers**
+### Reduces Cognitive Load for Developers and Platform Engineers
 CPS1 is designed to reduce cognitive load, making both development and management simpler. This means less mental overhead for both developers and platform engineers, allowing them to focus on what really matters.
 
-7. **Ensures Consistency Across Development Environments**
-CPS1 enforces consistency across ephemeral development environments, helping prevent discrepancies that often arise in traditional local setups or when using multiple tools, leading to more predictable and reliable development processes.
-
-8. **On-Demand, Self-Service for Developers**
-Developers can access on-demand environments through self-service capabilities, enabling them to quickly spin up new environments without needing to rely on platform engineers.
-
-9. **Integrated IDE and Remote Access**
-CPS1 includes an integrated IDE with native remote access capabilities, enabling developers to work directly in their environment from anywhere, without additional integrations or complex setups.
-
-10. **Focus on Developer Experience**
+### Focus on Developer Experience
 With an emphasis on reducing friction in both development and platform management, CPS1 prioritizes a seamless experience for all users, whether they’re platform engineers customizing environments or developers using them.
-
-11. **Fast Learning Curve**
-CPS1's low-effort learning curve sets it apart from other solutions that can require lengthy onboarding, making it an attractive choice for teams who want to quickly implement and scale their workflows.
-
-12. **Highly Scalable with Kubernetes Integration**
-Fully integrated into your Kubernetes cluster, CPS1 can scale easily to meet the needs of growing development teams and complex workloads, making it a more flexible solution compared to many traditional cloud-based development environments.
-
-13. **Focus on Flexibility Without Compromising Consistency**
-CPS1 allows platform engineers to enforce a golden path while still giving developers the flexibility they need, balancing control with customization—something many other solutions struggle to do.
-
-14. **Fast, Reproducible Environment Setup**
-The templating engine enables fast, reproducible environment setups, meaning developers can spend less time configuring environments and more time coding.
-
-15. **Dedicated to Platform Engineers and Developers**
-Unlike other products that may cater only to one role, CPS1 is tailored to both platform engineers (for managing and customizing environments) and developers (for ease of use and flexibility).
 
 <div class="grid cards" markdown>
 
@@ -77,7 +60,7 @@ Unlike other products that may cater only to one role, CPS1 is tailored to both 
 
     CPS1 has its own set of terms to model all types of workloads.
 
-    [:octicons-arrow-right-24: Key Cncepts](key-concepts.md)
+    [:octicons-arrow-right-24: Key Concepts](key-concepts.md)
 
 -   __Product Architecture__
 
