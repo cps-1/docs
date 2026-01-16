@@ -1,6 +1,6 @@
 # Quickstart Guide
 
-Welcome! In this tutorial, you’ll install CPS1 locally and learn how to create a new **Template** and provision a **Workspace**!
+Welcome! In this tutorial, you’ll install CPS1 locally and learn how to create a new **Template** and provision a **Environment**!
 
 ## 1. Prerequisites
 Ensure the following tools are installed on your system:

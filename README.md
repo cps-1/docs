@@ -51,6 +51,6 @@ is no branch yet, create a new one from the `main` branch.
 
 When the new version is done:
 1. Open a PR to the main branch to keep it updated
-2. Run `mike deploy <new-version> latest`
-3. Test the new and older versions with `mike serve -a 0.0.0.0:8000`
+2. Run `poetry run mike deploy <new-version> latest --update-aliases` (this updates the gh-pages branch with the new version)
+3. Test the new and older versions with `poetry run mike serve -a 0.0.0.0:8000`
 4. Publish it pushing the changes in the `gh-pages` branch

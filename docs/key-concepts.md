@@ -1,128 +1,141 @@
-# CPS1 Key Concepts
+# Key Concepts
 
-CPS1 employs specific terminology to effectively model various system designs (architectures) and organizational team structures. To that end, we rely on two main concepts: **Templates** and **Workspaces**.
+CPS1 employs specific terminology to effectively model various workloads and organizational team structures. Our framework is built on four core concepts: **Workspaces**, **Resources**, **Templates**, and **Environments**.
 
-A **Template** contains the definition of how a development environment must be provisioned on your Kubernetes cluster, witch we call a **Workspace**.
+## Building Blocks: Workspaces and Resources
 
-The Template includes information such as source code repositories, ports, containers, services, programming languages and other resources needed to fully provision and run your entire application into a **Workspace**.
+Developers connect their preferred IDE to a **Workspace** to write, run, debug, and test code, shifting active development off their local machine, ensuring environment parity. Each Workspace comes with all required tools pre-installed, requiring zero setup, and allows for sharing the live state of running code for immediate feedback.
 
-The **Workspace** has extra capabilities that augments developers productivity, such as an integrated web IDE and SSH access.
+Code rarely runs in isolation. It relies on external dependencies, such as databases, caches, and message brokers, to function correctly. We define these dependencies as **Resources**.
 
-Let's dive into the details.
+### Workspaces
 
-## Templates
+A **Workspace** serves as a reproducible environment designed specifically for application development. It contains the source code, network ports, programming languages, and various tools required to build and run your software. 
 
-A **Template** is the source of every ephemeral development environment in CPS1, that we call **Workspace**.
+By utilizing these environments, organizations can standardize development setups and tooling across entire teams. This consistency eliminates the "it works on my machine" problem inherent in traditional local development. 
 
-In CPS1, a **Template** is the definition of a provisioned **Workspace**.
+Furthermore, because these environments are accessed via SSH, they offer significantly greater compute capacity compared to a standard laptop.
 
-Internally, a Template contains the configuration of the many parts of a running Workspace, that we call **Components**, and a container image that CPS1 builds and stores into an internal registry for fast **Workspace** provisioning.
+The Workspace is accessible using SSH. Most modern IDEs support remote development through this protocol, delivering a seamless Developer Experience by allowing you to work in a remote environment as if it were local.
 
-Every Template has a base container image that is used as a starting point for CPS1 to add your configuration atop of it during the process of the Template build.
+Common IDEs for remote development include:
+* [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview)
+* [IntelliJ IDEA Remote development overview](https://www.jetbrains.com/help/idea/remote-development-overview.html)
+* [Zed Remote Development](https://zed.dev/docs/remote-development)
 
-As a Platform Engineer, you can create a Template to define and configure what tools, languages and resources go into the final template image.
+A Workspace is considered a functional unit that corresponds to a specific technical component of your application, such as the frontend or the backend.
 
-CPS1 will build a container image that will be used as a starting point for new Workspaces.
+A **Workspace** has attributes that determine how it functions. These attributes are: **Code Repositories**, **Packages**, **Network Ports**, and **Environment Variables**.
 
-You don't need to manage Dockerfiles at this point and just provide an initial image.
+#### Packages
 
-### Components
+Every Workspace utilizes a container **Base Image** and a set of **Packages**.
 
-A Template contains what we call **Components**.
+These Packages are integrated during the Workspace build process. They function as self-contained units of installation that typically includes programming languages, frameworks, libraries, and relevant tools necessary to run, build, and test your application code.
 
-A **Component** is the smallest functional unit that corresponds to a specific technology-related aspect of your application, such as the backend, frontend, or a database.
+The primary advantage of this system is that it abstracts away the complexity of environment management. Platform Engineers can define and provide all necessary tools and languages without manually writing or maintaining Dockerfiles.
 
-There are three types of Components: **Resources**, **Services**, and **Containers**.
+CPS1 handles the underlying container image build, ensuring that the resulting Workspace image is consistent, optimized, and ready for immediate development.
 
-#### Resources
+!!! tip "Packages in the CPS1 Catalog"
 
-A **Resource** refers to an external dependency that an application relies on to function, such as databases, caches, message brokers, and others.
-
-<!-- TODO: dizer que pode ser uma dependencia --> 
-
-CPS1 provides a list of commonly used Resource Components, including MongoDB, MySQL, PostgreSQL, Redis, RabbitMQ, and more, with support for multiple versions. This list is regularly updated and maintained.
-
-Resource Components managed by CPS1 are deployed in isolation for development and are integral to each Workspace.
-
-CPS1 can also manage external infrastructure necessary for development at runtime, such as services from public cloud vendors, integrating them into the Workspace lifecycle using Terraform.
-
-#### Services
-
-A **Service** runs code that typically exposes a network port. The code can be designed for a cloud-native environment, but this is not a requirement.
-
-A **Service** has attributes that determine how it functions within the Workspace. These attributes are: **Code Repository**, **Packages**, and **Network Ports**.
-
-The first attribute of a **Service** is to define a **Code Repository**.
-
-<!-- TODO: dizer mais algo sobre como configurar e autenticação --> 
-
-!!! note "Flexible repository structure support"
+    CPS1 provides a wide variety of tested, out-of-the-box Packages for popular stacks such as Python, Node.js,
+    .NET Core, and Java. You can explore these options in the CPS1 Catalog.
     
-    CPS1 is agnostic about the structure of the repository. It supports repositories containing multiple distinct programming languages (commonly known as a monorepo) or a single programming language. For each language in the **Code Repository** of a **Service Component**, one or more **Packages** can be configured.
+    For details about supported languages, tools, and configurations, visit the CPS1 Catalog repository: [https://github.com/cps-1/helm-charts/tree/main/charts/cps1-catalog](https://github.com/cps-1/helm-charts/tree/main/charts/cps1-catalog).
 
-In CPS1, a **Package** refers to a combination of technologies that provide everything necessary to run, build, and test the code. It often includes a programming language, frameworks, libraries, runtime, and other tools.
+#### Code Repositories
 
-**Packages** are self-contained units of installation code that run when a template container image is built and are designed to install on top of the Template base container image.
+To further enhance the Developer Experience, a Workspace can be configured with a specific set of Git repositories. These repositories are automatically cloned during the Workspace provisioning process, ensuring the environment is ready for development immediately upon startup.
 
-CPS1 provides a supported base image that is tested and compatible with the various Packages we provide out of the box, Examples include:
+CPS1 remains agnostic regarding the structure of each repository. The platform fully supports diverse architectures, including monorepos containing multiple distinct programming languages as well as standard repositories focused on a single language.
 
-- Python
-- Node.js
-- .NET Core
-- Java
+For for more details refer to the [Git Repository Integration](git-repository-integration.md) guide.
 
-Finally, each **Service** typically exposes one or more **Network Ports** (usually over TCP) that allow other services or external clients to communicate with it.
+#### Network Ports
 
-Ports can be internal or external. Internal ports allow services to interact with each other, while external ports enable end-users or clients to communicate with the service directly.
+Applications typically expose one or more **Network Ports**, usually over TCP, to enable communication with other services or external clients.
 
-<!-- TODO: falar sobre a geraçao de portas automaticas q geral URLs --> 
+CPS1 allows you to configure and expose these Network Ports for applications running within a Workspace. Each configured port is automatically mapped to a unique, secure URL.
 
-!!! tip "Extending CPS1 for Platform Engineers"
+These preview URLs empower team members to share their progress and gather feedback instantly, bypassing the need for slow CI/CD pipelines. For enhanced security, access to these URLs is restricted exclusively to authenticated users within your CPS1 instance.
 
-    Missing the resource, tool or language that your organization uses? As a Platform Engineer, you can create and include your own **Packages** and **Resources** acording to your organization standards to CPS1.
+#### Environment Variables
+
+The most common method for configuring an application is through the use of **Environment Variables**. These variables are essential for externalizing configuration, which allows applications to adapt to different environments without requiring code changes. This practice makes the codebase more portable, maintainable, and secure by strictly separating sensitive settings from the source code.
+
+Environment Variables are typically utilized for managing database connection strings, feature flags, and system directories.
+
+A Workspace can be pre-configured with a specific set of Environment Variables that are immediately accessible upon startup.
+
+By automating this setup, CPS1 eliminates the need for developers to perform manual configuration, allowing them to remain focused on writing code.
+
+### A Resource refers to an external dependency that an application requires to function, such as a database, cache, or message broker. Resources represent the essential infrastructure components necessary for an application to operate correctly.
+
+One of the primary challenges in Platform Engineering is the automated provisioning and maintenance of developer infrastructure. Managing the lifecycle of these components is critical, particularly the decommissioning of unused resources to prevent unnecessary cloud costs.
+
+Technically, a Resource in CPS1 consists of a predefined set of instructions that dictate how a specific infrastructure component should be created and managed.
+
+CPS1 utilizes an internal orchestrator to provision Resources according to these instructions. The orchestrator maintains the state of these components throughout their lifecycle. A Resource can be provisioned internally on the Kubernetes cluster where CPS1 resides, or it can manage external infrastructure from public cloud providers at runtime.
+
+By integrating these external services into the Environment lifecycle, CPS1 ensures that all necessary infrastructure is automatically provisioned when needed and cleaned up when no longer in use.
+
+!!! tip "Resources in the CPS1 Catalog"
+
+    CPS1 provides a list of commonly used Resources, including MariaDB, MySQL, PostgreSQL, Redis, AWS SNS, AWS RDS, with support for multiple versions. You can explore these options in the CPS1 Catalog.
     
-    For details about supported languages, tools, and configurations, visit the CPS1 Contrib repository: [https://github.com/cps-1/helm-charts/tree/main/charts/cps1-contrib](https://github.com/cps-1/helm-charts/tree/main/charts/cps1-contrib).
+    For details, visit the CPS1 Catalog repository: [https://github.com/cps-1/helm-charts/tree/main/charts/cps1-catalog](https://github.com/cps-1/helm-charts/tree/main/charts/cps1-catalog).
 
-## Workspaces
+## The Lifecycle: Templates and Environments
 
-In CPS1, a **Workspace** is an ephemeral development environment created based on a given **Template**, with many additional capabilities compared to running locally on a developer’s laptop.
+A **Template** serves as the authoritative blueprint for creating **Environments**. It contains the precise definition of how a development environment must be provisioned, acting as the static specification for what eventually becomes a live, running instance.
 
-A Workspace operates entirely on your Kubernetes cluster where CPS1 is deployed. You don’t need to worry because CPS1 manages everything transparently, making Kubernetes operations invisible.
+The uniqueness of CPS1 lies in its ability to unify all development requirements into a single workflow. By combining Workspaces and Resources within a single definition, the platform ensures that the entire application stack is reproducible and consistent.
 
-A Workspace includes everything defined in a Template, along with all programming languages and tools defined as **Packages** for each **Service** of the running application. There is no need to manually build base images.
+### Templates
 
-Developers can access the **Workspace** using an integrated Visual Studio Code Web IDE directly from a web browser, eliminating the need for local software installation, or using an SSH connection.
+A **Template** is the configuration that dictates how CPS1 provisions an **Environment**.
 
-When a developer accesses the **Workspace**, using the Visual Studio Code Web IDE or SSH, the source code of all configured **Services** will be checked out.
+It acts as a manifest that declares which Workspaces (the code and tools) and which Resources (the infrastructure and dependencies) are required.
 
-**Services** configured in the Template that expose a network port will be accessible via a URL automatically generated by CPS1.
+This approach allows Platform Engineers to create standandarzied development environments, ensuring that every developer starts with an identical, optimized setup.
 
-The lifecycle of a Workspace begins when you create it and ends when you delete it. You can disconnect and reconnect to an active Workspace without affecting its running processes. Additionally, you can stop and restart a Workspace without losing any changes you have made.
+### Environments
+
+In CPS1, an **Environment** is an ephemeral instance created from a specific Template. These environments provide capabilities that far exceed the limitations of a local laptop.
+
+Multiple Environments can be created simultaneously from a single Template. This capability allows developers on the same team to work on different features of the same application in complete isolation. By utilizing independent environments, team members can develop, test, and experiment without the risk of interfering with one another's progress or stability.
+
+During the Environment provisioning process, CPS1 manages all underlying orchestration transparently. Resources can be provisioned internally within the Kubernetes cluster where CPS1 resides or externally through public cloud providers.
+
+Every Workspace within an Environment is provisioned directly on the Kubernetes cluster hosting the CPS1 platform. A significant advantage of this architecture is that CPS1 handles complex Kubernetes operations in a way that remains completely invisible to the end user. This abstraction allows Platform Engineers to leverage the power of container orchestration without needing to manage its technical intricacies.
+
+An Environment lifecycle begins upon creation and concludes when it is deleted, invluding all associated Resources. This model supports modern development workflows in several ways:
+* Persistent sessions: You can disconnect and reconnect to an active Workspace without interrupting running processes.
+* State preservation: You can stop and restart Workspaces without losing any configuration changes or files.
+* On-Demand scalability: Environments utilize the compute power of the cluster rather than local hardware.
 
 ## Summary of Key Concepts
 
-- **Template**
-    - Definition of how a development environment must be provisioned
-    - Consists of multiple **Components**.
-
-- **Component**
+- **Workspace**
     - The smallest unit of an application, representing technology-related parts like backend, frontend, or database.
-    - Two types: **Services** and **Resources**.
-
-- **Service**:
     - Runs code, often exposing a network port.
     - Key attributes: **Code Repository**, **Packages**, and **Network Ports**.
     - Supports **monorepos** (multiple programing languages) and **single programing language** repositories.
     - **Packages**: Installs runtime and tools into the final template container image.
     - **Network Ports**: Allow internal and external communication.
+    - Automatically checks out code on launch.
 
 - **Resource**
     - External dependencies like databases, caches, or message brokers.
-    - CPS1 supports popular resources (e.g., MongoDB, PostgreSQL) and integrates cloud infrastructure via Terraform.
-    - Resources are isolated for development within **Workspaces**.
+    - CPS1 supports popular resources (e.g., MongoDB, PostgreSQL) and integrates cloud infrastructure.
 
-- **Workspace**  
+- **Template**
+    - Definition of how a development environment must be provisioned
+    - Consists of **Workspaces** and **Resources**.
+
+- **Environment**  
     - A cloud-based development environment managed on your Kubernetes cluster.
     - Offers enhanced capabilities compared to local development environments.
+    - Provisioned Workspaces and Resources
     - Accessible via a **Visual Studio Code Web IDE** through a browser.
-    - Automatically checks out code on launch.
