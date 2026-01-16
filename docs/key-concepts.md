@@ -19,6 +19,7 @@ Furthermore, because these environments are accessed via SSH, they offer signifi
 The Workspace is accessible using SSH. Most modern IDEs support remote development through this protocol, delivering a seamless Developer Experience by allowing you to work in a remote environment as if it were local.
 
 Common IDEs for remote development include:
+
 * [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview)
 * [IntelliJ IDEA Remote development overview](https://www.jetbrains.com/help/idea/remote-development-overview.html)
 * [Zed Remote Development](https://zed.dev/docs/remote-development)
@@ -70,7 +71,9 @@ A Workspace can be pre-configured with a specific set of Environment Variables t
 
 By automating this setup, CPS1 eliminates the need for developers to perform manual configuration, allowing them to remain focused on writing code.
 
-### A Resource refers to an external dependency that an application requires to function, such as a database, cache, or message broker. Resources represent the essential infrastructure components necessary for an application to operate correctly.
+### Resources
+
+A **Resource** refers to an external dependency that an application requires to function, such as a database, cache, or message broker. Resources represent the essential infrastructure components necessary for an application to operate correctly.
 
 One of the primary challenges in Platform Engineering is the automated provisioning and maintenance of developer infrastructure. Managing the lifecycle of these components is critical, particularly the decommissioning of unused resources to prevent unnecessary cloud costs.
 
@@ -111,6 +114,7 @@ During the Environment provisioning process, CPS1 manages all underlying orchest
 Every Workspace within an Environment is provisioned directly on the Kubernetes cluster hosting the CPS1 platform. A significant advantage of this architecture is that CPS1 handles complex Kubernetes operations in a way that remains completely invisible to the end user. This abstraction allows Platform Engineers to leverage the power of container orchestration without needing to manage its technical intricacies.
 
 An Environment lifecycle begins upon creation and concludes when it is deleted, invluding all associated Resources. This model supports modern development workflows in several ways:
+
 * Persistent sessions: You can disconnect and reconnect to an active Workspace without interrupting running processes.
 * State preservation: You can stop and restart Workspaces without losing any configuration changes or files.
 * On-Demand scalability: Environments utilize the compute power of the cluster rather than local hardware.
@@ -118,24 +122,24 @@ An Environment lifecycle begins upon creation and concludes when it is deleted, 
 ## Summary of Key Concepts
 
 - **Workspace**
-    - The smallest unit of an application, representing technology-related parts like backend, frontend, or database.
+    - The smallest unit of an application, representing technology-related parts like backend or frontend.
     - Runs code, often exposing a network port.
-    - Key attributes: **Code Repository**, **Packages**, and **Network Ports**.
+    - Key attributes: **Code Repository**, **Packages**, **Network Ports** and **Environment Variables**.
     - Supports **monorepos** (multiple programing languages) and **single programing language** repositories.
-    - **Packages**: Installs runtime and tools into the final template container image.
-    - **Network Ports**: Allow internal and external communication.
-    - Automatically checks out code on launch.
+    - **Packages**: Installs runtime and tools into the final Workspace container image.
+    - **Network Ports**: Allow communication with running code inside the Workspace.
+    - **Code Repository**: Automatically checks out code on Workspace launch.
+    - **Environment Variables**: Defines configuration and behavior of the application.
 
 - **Resource**
     - External dependencies like databases, caches, or message brokers.
-    - CPS1 supports popular resources (e.g., MongoDB, PostgreSQL) and integrates cloud infrastructure.
+    - Contains definitions that dictate how a specific infrastructure component should be created and managed.
 
 - **Template**
-    - Definition of how a development environment must be provisioned
+    - Definition of how a development environment must be provisioned.
     - Consists of **Workspaces** and **Resources**.
 
 - **Environment**  
     - A cloud-based development environment managed on your Kubernetes cluster.
     - Offers enhanced capabilities compared to local development environments.
     - Provisioned Workspaces and Resources
-    - Accessible via a **Visual Studio Code Web IDE** through a browser.

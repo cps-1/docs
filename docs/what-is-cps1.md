@@ -4,20 +4,49 @@ Cloud Programming Shell (CPS1) is a unified Platform Orchestrator and Cloud Deve
 
 CPS1 bridges the gap between Platform Engineering and Developer Experience by unifying infrastructure provisioning and remote development into a single, self-service flow.
 
-Cloud Programming Shell (CPS1) is a self-hosted solution deployed on your Kubernetes cluster, enhancing development workflows with an intuitive templating engine that automates the provisioning of ephemeral development environments.
+It's a self-hosted solution deployed on your Kubernetes cluster, enhancing development workflows with an intuitive orchestration engine that automates the provisioning of development environments.
 
-Platform engineers can easily customize and extend CPS1, eliminate manual setup, and enforce consistency in ephemeral environments, while offering developers self-service and the flexibility they need.
+Platform engineers can easily customize and extend CPS1, eliminate manual setup, and enforce consistency development environments, while offering developers self-service and the flexibility they need.
 
 ## What is Platform Engineering?
 
-TODO
-Team topologies, time de plataforma,
+While Platform Engineering is an expansive field without a single industry-standard definition, its core principles are best understood through the perspectives of the experts and organizations shaping the discipline today.
 
-Falar de disciplinas como env mgmt e 
+What is Platform Engineering according to CNCF:
+
+> The main goal of Platform Engineering is to improve the developer experience (DevEx) and optimize software delivery.
+>
+> **Natália Granato**, CNCF Ambassador, [What is platform engineering?](https://www.cncf.io/blog/2025/11/19/what-is-platform-engineering/)
+
+Acording to Google Cloud:
+
+> Platform Engineering is the practice of building useful abstractions and self-service infrastructure within an organization, to unify scattered tools and accelerate developer productivity.
+>
+> **Darren Evans**, **Megan O'Keefe**, Google Cloud, [Light the way ahead: Platform Engineering, Golden Paths, and the power of self-service](https://cloud.google.com/blog/products/application-development/golden-paths-for-engineering-execution-consistency)
+
+Acording to the author of the book [Team Topologies](https://teamtopologies.com):
+
+> The ultimate goal of Platform Engineering is to accelerate the flow of value to the customer by reducing cognitive load in the system at the optimal level of investment.
+>
+> **Manuel Pais**, Team Topologies, [Team Topologies Platform Engineering](https://teamtopologies.com/platform-engineering)
+
+While definitions vary, the consensus is clear: Platform Engineering is about shifting the complexity 'down' into a self-service product so developers can focus on business value.
+
+The platform's job is to take the pain so the developer doesn't have to.
 
 ### What is a Platform Orchestrator?
 
-TODO, Terraform ou GitOps tools, massdriver, etc
+For many years, the industry embraced the “You Build It, You Run It” principle, popularized by Amazon CTO Werner Vogels. This model placed responsibility for infrastructure, security, and networking directly on developers.
+
+As cloud-native ecosystems grew in scale and complexity, this approach became unsustainable, imposing excessive cognitive load on development teams.
+
+Platform Engineering emerged to deliberately shift these responsibilities downward. Within this context, the Platform Orchestrator provides a developer-centric mechanism for on-demand infrastructure provisioning, governed by standardized organizational policies.
+
+The Platform Orchestrator bridges high-level application requirements with underlying infrastructure by managing networking, storage, identity, and secrets. By automating resource integration and configuration, it enables developers to focus on delivering business logic rather than operating infrastructure.
+
+Functioning as the platform’s control plane, the Platform Orchestrator manages the full lifecycle of environments and may abstract or replace traditional tooling such as Terraform and Ansible from the developer’s perspective.
+
+At its core, a Platform Orchestrator delivers a unified, self-service engine for infrastructure delivery.
 
 ### What is a Cloud Development Environment?
 
@@ -44,29 +73,29 @@ To learn more about CDEs and the advantages of this paradigm shift, here are fou
 
 In software, "glue" is the custom code, scripts, and manual handoffs used to make different tools talk to each other. In Platform Engineering, glueing results in three major pains:
 
-* Metadata Decay: Information created in one tool (e.g., a database connection string in Terraform) becomes "stale" or lost by the time it reaches the second tool (the IDE).
-* The "N+1" Configuration Problem: If you change a port in your infra orchestrator, you now have an "N+1" task: you must manually find and update every dependent environment. If you have 50 developers, that’s 50 potential points of failure.
-* Fragile Pipelines: Glue code is rarely unit-tested. When the Orchestrator updates its API, the "glue" breaks, and suddenly no one can code.
+* Metadata decay: Information created in one tool (e.g., a database connection string in Terraform) becomes "stale" or lost by the time it reaches the second tool (the IDE).
+* The "N+1" configuration problem: If you change a port in your infra orchestrator, you now have an "N+1" task: you must manually find and update every dependent environment. If you have 50 developers, that’s 50 potential points of failure.
+* Fragile pipelines: Glue code is rarely unit-tested. When the Orchestrator updates its API, the "glue" breaks, and suddenly no one can code.
 
 ## Platform Orchestrator vs. Cloud Development Environment
 
-When you glue a Platform Orchestrator to a CDE, you encounter the "Cross-Configuration Gap."
+When you glue a Platform Orchestrator to a Cloud Development Environment, you encounter the "Cross-Configuration Gap."
 
 The Scenario: Your Orchestrator provisions a dynamic PostgreSQL instance for a developer's feature branch.
 
-The Problem: The Orchestrator might assign a random port (e.g., 5432 → 32145) or a dynamic internal DNS name.
+The Problem: The Orchestrator assign a dynamic internal DNS name.
 
 The Manual Bridge: The developer now has to manually copy-paste that connection string into their `.env` file or their VS Code settings inside the CDE (or even locally).
 
 Security Leaks: Because the tools are separate, developers often hard-code secrets or use "test1234" just to bypass the friction of the integration.
 
-In this model, the "Self-Service" dream dies because the developer is still stuck "configuring" instead of "coding."
+In this model, the self-service dream dies because the developer is still stuck "configuring" instead of "coding."
 
 ## Why CPS1 was created
 
 We believe that, given the complexity and other characteristics of modern systems, development must take place on a managed cloud infrastructure with automation, rather than locally on each contributor's laptop.
 
-This change is essential to increasing software development and delivery capabilities by 10x while maintaining quality and consistency, all without increasing the number of people involved.
+This change is essential to increasing software development and delivery capabilities while maintaining quality and consistency, all without increasing the number of people involved.
 
 To achieve the results of our vision, we believe changing the paradigm and moving away from local development environments is the best path forward.
 
