@@ -8,7 +8,7 @@ The **Web Console** is used by developers and administrators for managing, **Wor
 
 The **Gateway** is responsible for providing conectivity to running applications into a Workspace and SSH access.
 
-The **Workspace Server** has two services. The first is the **API Server** that has the **Web Console** as its client. The second is an **Kubernetes Operator** that performs operations and listens for events on the cluster's Control Plane to manage **Envinroments** lifecycle.
+The **Server** has two services. The first is the **API Server** that has the **Web Console** as its client. The second is an **Kubernetes Operator** that performs operations and listens for events on the cluster's Control Plane to manage **Envinroments** lifecycle.
 
 CPS1 makes Kubernetes invisible, providing production-like environments and a seamless cloud-based developer experience. The **Kubernetes Operator** integrates into the cluster's Control Plane, continuously monitoring the actual state against the desired state and reconciling if configuration drift occurs.
 
