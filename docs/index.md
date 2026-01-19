@@ -2,7 +2,7 @@
 
 ## What is Cloud Programming Shell?
 
-Cloud Programming Shell (CPS1) is a unified Platform Orchestrator and Cloud Development Environment solution.
+**Cloud Programming Shell (CPS1) is a unified Platform Orchestrator and Cloud Development Environment solution.**
 
 It provides Platform Engineers and SREs with the governance and cost-controls they need, while giving developers the flexibility and speed they demand.
 
@@ -13,7 +13,7 @@ Platform Engineers can easily customize and extend CPS1, eliminate manual setup,
 ## What makes CPS1 different?
 
 1. **Platform Orchestrator and Cloud Development Environmets combined**
-Unlike CDEs that require external tools for infra management, CPS1 has orchestration built-in. It manages the lifecycle of the environment, from initial provisioning to automatic suspension (cost-saving) and decommissioning.
+Unlike CDEs that require external tools for infrastructure management, CPS1 has orchestration built-in. It manages the lifecycle of the environment, from initial provisioning to automatic suspension (cost-saving) and decommissioning.
 
 2. **Self-Service Provisioning**
 CPS1 empowers developers to spin up full-stack environments including databases, caches, and cloud resources from pre-approved Templates defined by Platform Engineers. No tickets, no delays.
@@ -60,7 +60,7 @@ With an emphasis on reducing friction in both development and platform managemen
 
     CPS1 has its own set of terms to model all types of workloads.
 
-    [:octicons-arrow-right-24: Key Cncepts](key-concepts.md)
+    [:octicons-arrow-right-24: Key Concepts](key-concepts.md)
 
 -   __Product Architecture__
 

@@ -2,13 +2,13 @@
 
 CPS1 is deployed on your Kubernetes cluster to transparently handle all necessary operations that support its features.
 
-A CPS1 instance has three main components: the **Web Console**, the **Workspace Server**, and the **Gateway**.
+A CPS1 instance has three main components: the **Web Console**, the **Server**, and the **Gateway**.
 
-The **Web Console** is used by developers and administrators for managing **Templates** and lauching development environment **Workspaces**.
+The **Web Console** is used by developers and administrators for managing, **Workspaces**, **Resources**, **Templates** and **Environments**.
 
-The **Gateway** is responsible for providing SSH access to a Workspace.
+The **Gateway** is responsible for providing conectivity to running applications into a Workspace and SSH access.
 
-The **Workspace Server** has two services. The first is the **API Server** that has the **Web Console** as its client. The second is an **Kubernetes Operator** that performs operations and listens for events on the cluster's Control Plane to manage the development environment **Workspaces** lifecycle.
+The **Workspace Server** has two services. The first is the **API Server** that has the **Web Console** as its client. The second is an **Kubernetes Operator** that performs operations and listens for events on the cluster's Control Plane to manage **Envinroments** lifecycle.
 
 CPS1 makes Kubernetes invisible, providing production-like environments and a seamless cloud-based developer experience. The **Kubernetes Operator** integrates into the cluster's Control Plane, continuously monitoring the actual state against the desired state and reconciling if configuration drift occurs.
 

@@ -1,12 +1,10 @@
 # What is Cloud Programming Shell (CPS1)?
 
-Cloud Programming Shell (CPS1) is a unified Platform Orchestrator and Cloud Development Environment solution.
+**Cloud Programming Shell (CPS1) is a unified Platform Orchestrator and Cloud Development Environment solution.**
 
 CPS1 bridges the gap between Platform Engineering and Developer Experience by unifying infrastructure provisioning and remote development into a single, self-service flow.
 
 It's a self-hosted solution deployed on your Kubernetes cluster, enhancing development workflows with an intuitive orchestration engine that automates the provisioning of development environments.
-
-Platform engineers can easily customize and extend CPS1, eliminate manual setup, and enforce consistency development environments, while offering developers self-service and the flexibility they need.
 
 ## What is Platform Engineering?
 
@@ -46,7 +44,7 @@ The Platform Orchestrator bridges high-level application requirements with under
 
 Functioning as the platform’s control plane, the Platform Orchestrator manages the full lifecycle of environments and may abstract or replace traditional tooling such as Terraform and Ansible from the developer’s perspective.
 
-At its core, a Platform Orchestrator delivers a unified, self-service engine for infrastructure delivery.
+At its core, a Platform Orchestrator delivers self-service engine for infrastructure delivery.
 
 ### What is a Cloud Development Environment?
 
@@ -81,23 +79,22 @@ In software, "glue" is the custom code, scripts, and manual handoffs used to mak
 
 When you glue a Platform Orchestrator to a Cloud Development Environment, you encounter the "Cross-Configuration Gap."
 
-The Scenario: Your Orchestrator provisions a dynamic PostgreSQL instance for a developer's feature branch.
+* **The Scenario**: Your Orchestrator provisions a dynamic PostgreSQL instance for a developer's feature branch.
+* **The Problem**: The Orchestrator assign a dynamic internal DNS name.
+* **The Manual Bridge**: The developer now has to manually copy-paste that connection string into their `.env` file or their VS Code settings inside the CDE (or even locally).
 
-The Problem: The Orchestrator assign a dynamic internal DNS name.
-
-The Manual Bridge: The developer now has to manually copy-paste that connection string into their `.env` file or their VS Code settings inside the CDE (or even locally).
-
-Security Leaks: Because the tools are separate, developers often hard-code secrets or use "test1234" just to bypass the friction of the integration.
+Another common scenario, because the tools are separate, developers often hard-code secrets or use "test1234" just to bypass the friction of the integration.
 
 In this model, the self-service dream dies because the developer is still stuck "configuring" instead of "coding."
 
 ## Why CPS1 was created
 
-We believe that, given the complexity and other characteristics of modern systems, development must take place on a managed cloud infrastructure with automation, rather than locally on each contributor's laptop.
+Given the inherent complexity of modern systems, we believe that development must shift from local workstations to automated, managed cloud infrastructure. This transition ensures that the development environment scales alongside the system it supports.
 
-This change is essential to increasing software development and delivery capabilities while maintaining quality and consistency, all without increasing the number of people involved.
+Furthermore, to eliminate the "glue" problem, the environment in which application code is written, including all external dependencies, must be treated as a single, cohesive unit. These elements are fundamentally interdependent; one cannot function effectively without the other.
 
-To achieve the results of our vision, we believe changing the paradigm and moving away from local development environments is the best path forward.
+This shift is essential for enhancing software development and delivery velocity. It allows us to maintain high standards of quality and consistency without necessitating an increase in headcount.
 
-It is also crucial to make the transition seamless from laptop-based local environments to the cloud by utilizing automation, eliminating the need for labor-intensive manual updates of software projects.
+To realize this vision, we must move away from fragmented local setups and adopt a new paradigm. By unifying development environments with their required infrastructure under a single configuration and workflow, we create a more resilient and efficient path forward.
+
 
