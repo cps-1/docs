@@ -86,23 +86,23 @@ helm show values cps1/cps1-platform
 
 ### Install packages, resources and templates
 
-CPS1 Contrib is a curated collection of packages, resources, and templates that extend the capabilities of the CPS1 platform.
+CPS1 Catalog is a curated collection of packages, resources, and templates that extend the capabilities of the CPS1 platform.
 
-For details about supported languages, tools, and configurations, visit the CPS1 Contrib repository: [https://github.com/cps-1/helm-charts/tree/main/charts/cps1-contrib](https://github.com/cps-1/helm-charts/tree/main/charts/cps1-contrib).
+For details about supported languages, tools, and configurations, visit the [CPS1 Catalog repository](https://github.com/cps-1/helm-charts/tree/main/charts/cps1-catalog)
 
 The command below installs all packages and resources, and includes only the development environment templates for NodeJS and Python.
 
 ```
-helm install -n cps1 cps1-contrib cps1/cps1-contrib \
+helm install -n cps1 cps1-catalog cps1/cps1-catalog \
   --set 'includeTemplates={nodejs,python}'
 ```
 
 To include additional templates, add them to the `includeTemplates` list (e.g., `'includeTemplates={nodejs,python,go}'`).
 
-You can find the full list of available templates in the [CPS1 Contrib repository](https://github.com/cps-1/helm-charts/tree/main/charts/cps1-contrib/).
+You can find the full list of available templates in the [CPS1 Catalog repository](https://github.com/cps-1/helm-charts/tree/main/charts/cps1-catalog/).
 
 !!! tip Contribute 
-    We welcome contributios of additional packages, resources, and templates to CPS1 Contrib! Please see our [Contribution Guidelines](https://github.com/cps-1/helm-charts/blob/main/charts/cps1-contrib/CONTRIBUTING.md) for details on how to get started. Feedback and requests are also welcome!
+    We welcome contributios of additional packages, resources, and templates to CPS1 Catalog! Please see our [Contribution Guidelines](https://github.com/cps-1/helm-charts/blob/main/charts/cps1-catalog/CONTRIBUTING.md) for details on how to get started. Feedback and requests are also welcome!
 
 ### Logging into your CPS1 instance
 
