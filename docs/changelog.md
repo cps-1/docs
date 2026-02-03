@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.0 <small>December 11, 2025</small> { id="0.4.0" }
+
+- IDs from resources and workspaces are translated depending on the context to be used in Kubernetes objects name and CEL statements.
+- More variables are available in CEL contexts to refer to services exposed by other workspaces. Now it's easy to connect multiple microservices within a single environment:
+- The SSH gateway was updated to support JetBrains Gateway.
+- Fixed a bug that could make a new environment page become empty
+- Fixed the build logs display for templates with multiple workspaces
+
 ## 0.3.1 <small>December 02, 2025</small> { id="0.3.1" }
 
 - Add validations in UI and CRDs to block invalid Resources and Workspaces IDs
