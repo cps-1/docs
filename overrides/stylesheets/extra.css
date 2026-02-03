@@ -1,6 +1,16 @@
 /* revert list style to display different bullets */
 .md-typeset ul {
-  list-style-type: revert;
+  list-style-type: disc; /* Default to disc for first level */
+}
+
+.md-typeset ul ul {
+  margin-left: 1.5em; /* Indent second level */
+  list-style-type: circle; /* Use circle for second level */
+}
+
+.md-typeset ul ul ul {
+  margin-left: 1.5em; /* Indent third level */
+  list-style-type: square; /* Use square for third level */
 }
 
 /* highlight section titles in the side navigation */
