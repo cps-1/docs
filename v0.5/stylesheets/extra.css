@@ -1,0 +1,33 @@
+/* revert list style to display different bullets */
+.md-typeset ul {
+  list-style-type: disc; /* Default to disc for first level */
+}
+
+.md-typeset ul ul {
+  margin-left: 1.5em; /* Indent second level */
+  list-style-type: circle; /* Use circle for second level */
+}
+
+.md-typeset ul ul ul {
+  margin-left: 1.5em; /* Indent third level */
+  list-style-type: square; /* Use square for third level */
+}
+
+/* highlight section titles in the side navigation */
+.md-nav__title {
+  color: var(--md-primary-fg-color);
+}
+
+@media screen and (min-width: 76.25em) {
+  .md-nav__item--section > .md-nav__link[for] {
+    color: var(--md-primary-fg-color);
+    text-transform: uppercase;
+  }
+}
+
+/* customize footer 'partials/copyright.html' */
+.footer-copyright {
+  padding-top: 0.6rem;
+  margin: 0.2rem 0.6rem;
+  font-size: 0.64rem;
+}
