@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.1 <small>December 16, 2025</small> { id="0.4.1" }
+
+- Version 0.3 added a change where every template is built with [user namespaces](https://kubernetes.io/docs/concepts/workloads/pods/user-namespaces/) for Kubernetes 1.33 or newer. But some Kubernetes distributions/worker nodes combinations still doesn't properly support this feature such as Kind (Kubernetes in Docker) and EKS clusters with Bottlerocket. Therefore, now this behavior is opt-in. You can enable it setting CPS1's config `buildWithUserNamespaces` to `true` (it is `false` by default).
+- Fixed an issue where an SSH channel would be closed before completely streaming an exec's stderr if the stdout finished streaming.
+
 ## 0.4.0 <small>December 11, 2025</small> { id="0.4.0" }
 
 - IDs from resources and workspaces are translated depending on the context to be used in Kubernetes objects name and CEL statements.
