@@ -1,93 +1,42 @@
 # Changelog
 
+## 0.5.1 <small>February 9, 2026</small> { id="0.5.1" }
+
+- Fixed the generated SSH hostname to connect through the SSH gateway. 0.5.0
+introduced a regression that could generate SSH hostnames that were not a legal
+IDNA2008 name (larger than 63 characters).
+
 ## 0.5.0 <small>January 23, 2026</small> { id="0.5.0" }
 
-- Added the option to specify a git branch instead of the default one for each repository in each workspace.
-- Added options to retry provisioning a workspace and visualizing setup error logs.
-- Most Kubernetes objects created by CPS1 now have their names normalized. That is, their name is summarized to fit their type name length restriction and a random suffix is added to avoid collisions. This prevent some errors that could happen while provisioning environments with very large names that created resources with a very strict name size (e.g statefulsets).
-
-- Added a new configuration option to set which strategy to use for volume allocation for workspaces:
-    - `sharedPerUser`: every workspace created by that user will consume a single volume from their namespace
-    - `isolatedPerWorkspace`: every workspace gets its own isolated volume
-
-The default strategy is `isolatedPerWorkspace`. To change it, configure the `workspaceVolumes` in the config object:
-```yaml
-workspaceVolumes:
-  allocationStrategy: isolatedPerWorkspace  # Or "sharedPerUser"
-```
-
-Other options added to `workspaceVolumes` includes `size`, `accessMode`, and `storageClass`. Here is an example with the default values:
-```yaml
-workspaceVolumes:
-  allocationStrategy: isolatedPerWorkspace
-  size: 12Gi
-  storageClass: null  # leaving it null means it will use the cluster default StorageClass
-  accessMode: ReadWriteOnce
-```
-
-- Renamed the contrib chart to catalog, as we feel this name describes its purpose more clearly.
-
-- Added an optional CronJob that pauses every environment. Configure the values of the platform chart to use it. Here are the default values:
-```yaml
-environmentScheduler:
-  enabled: false  # Change to true to enable
-  serviceAccountName: "environment-scheduler"
-  clusterRoleName: "environment-scheduler"
-  clusterRoleBindingName: "environment-scheduler"
-  cronJob:
-    name: "environment-scheduler"
-    schedule: "0 22 * * *"
-    image:
-      name: "docker.io/alpine/kubectl"
-      tag: "1.34.2"
-```
-
-If you enable it with the default values every environment will be paused daily at 22:00.
-
-- Added some extra customization options for the platform, such as the Ingress class and their annotations. Here are the default values:
-```yaml
-ingress:
-  className: nginx
-  annotations: {}
-```
-
-The internal registry size is also configurable:
-```yaml
-internalRegistry:
-  volumeSize: 50Gi
-```
-
-- Some options were included to control the pod placement for the CPS1 server (operator), gateway and internal OCI registry. The defaults are empty:
-```yaml
-workloads:
-  # See https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector
-  nodeSelector: {}
-  # See https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity
-  affinity: {}
-  # See https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
-  tolerations: []
-```
-
-Here is an example to provision those pods on nodes tainted with `workload=addons:NoSchedule`:
-```yaml
-workloads:
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-          - matchExpressions:
-              - key: workload
-                operator: In
-                values:
-                  - addons
-  tolerations:
-    - key: workload
-      operator: Equal
-      value: addons
-      effect: NoSchedule
-```
-
-You can use this to create a node group with smaller nodes to run CPS1 and other cluster addons, while a node group with bigger nodes are available to run the development environments.
+- Fixed the usage of multiple environment variables through the SSH gateway
+- Improved how the SSH gateway sets environment variables in interactive shells
+- Updated SSH and HTTP gateway to listen both to IPv4 and IPv6 requests
+- Validate duplicate IDs for workspaces and resources in templates definitions
+- Normalize and mangle Kubernetes object names created by the CPS1 Operator.
+Most of the created objects now contains a random suffix (similar to
+Kubernetes' vanilla objects such as Pods) to avoid name collisions. Normalized
+names uses the beginning and ending of the original name, respecting the
+created object name length limit. Before this change there was a small chance
+of generating invalid Kubernetes objects names.
+- Introduced multiple volume strategies for environments workspaces'. The
+`sharedPerUser` strategy uses a single PVC of the user namespace across their
+environments. While the `isolatedPerWorkspace` strategy uses one PVC per
+created workspace. Those options are configured by the `workspaceVolumes`
+option, and also supports defining the used `StorageClass` and `accessMode`.
+- Added the option to select a custom branch for each repository of each
+workspace when creating a new environment.
+- Fixed an error when a resource type is changed in the template form. The form
+didn't properly reset with the default values of the newly selected resource.
+- Fixed CEL statements output in resources. They were always incorrectly
+coerced into strings, now they respect the source input type.
+- Added a retry option to recreate workspaces
+- Added an option to visualize setup errors for workspaces
+- Fixed some errors that could occur between the CPS1 operator and the Kubernetes
+API when it didn't properly finished a TLS connection (sending a close_notify
+message). The error would occur when the operator attempt to reuse a connection
+from a connection pool and that connection was ended by the server side. The
+fix relaxes the TLS settings to tolerate Kubernetes API servers that doesn't
+implement Closure Alerts as per RFC 5246 section 7.2.1.
 
 ## 0.4.1 <small>December 16, 2025</small> { id="0.4.1" }
 
