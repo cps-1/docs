@@ -37,6 +37,11 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 nav:
+  - 'Prática 1: Instalação': pratica-1.md
+  - Engenharia de Plataformas: engenharia-plataforma.md
+  - O que é o CPS1: o-que-e-cps1.md
+  - Fundamentos CPS1: fundamentos-cps1.md
+  - 'Prática 2: Criando um Environment': pratica-2.md
   - Welcome to CPS1: index.md
   - Introduction:
     - What is CPS1?: what-is-cps1.md
